@@ -1,0 +1,10 @@
+*.pyc
+m5out
+.vscode
+results
+.venv
+disk-image/packer
+disk-image/packer_1.4.3_linux_amd64.zip
+disk-image/parsec/parsec-image/parsec
+disk-image/packer_cache
+linux-stable/

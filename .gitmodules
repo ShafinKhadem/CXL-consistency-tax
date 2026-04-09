@@ -1,0 +1,6 @@
+[submodule "gem5"]
+	path = gem5
+	url = https://github.com/gem5/gem5
+[submodule "disk-image/parsec/parsec-benchmark"]
+	path = disk-image/parsec/parsec-benchmark
+	url = https://github.com/cirosantilli/parsec-benchmark
