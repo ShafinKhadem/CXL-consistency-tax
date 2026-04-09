@@ -1,0 +1,176 @@
+[49] Running: L=300ns lambda=1e-3 handler=5us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:55:42
+gem5 executing on spartacus-7, pid 2878618
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_1e-3__T_5us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 1e-3 --handler 5us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[49] Done: L=300ns lambda=1e-3 handler=5us
+[50] Running: L=300ns lambda=1e-3 handler=20us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:55:48
+gem5 executing on spartacus-7, pid 2878711
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_1e-3__T_20us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 1e-3 --handler 20us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[50] Done: L=300ns lambda=1e-3 handler=20us
+[51] Running: L=300ns lambda=0.01 handler=1us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:55:54
+gem5 executing on spartacus-7, pid 2878725
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_0.01__T_1us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 0.01 --handler 1us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[51] Done: L=300ns lambda=0.01 handler=1us
+[52] Running: L=300ns lambda=0.01 handler=5us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:56:00
+gem5 executing on spartacus-7, pid 2878746
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_0.01__T_5us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 0.01 --handler 5us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[52] Done: L=300ns lambda=0.01 handler=5us
+[53] Running: L=300ns lambda=0.01 handler=20us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:56:07
+gem5 executing on spartacus-7, pid 2878789
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_0.01__T_20us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 0.01 --handler 20us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[53] Done: L=300ns lambda=0.01 handler=20us
+[54] Running: L=300ns lambda=0.05 handler=1us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:56:18
+gem5 executing on spartacus-7, pid 2878886
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_0.05__T_1us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 0.05 --handler 1us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[54] Done: L=300ns lambda=0.05 handler=1us
+[55] Running: L=300ns lambda=0.05 handler=5us
+Global frequency set at 1000000000000 ticks per second
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 21:52:18
+gem5 started Apr  8 2026 21:56:24
+gem5 executing on spartacus-7, pid 2879044
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fault_sweep/L_300ns__lam_0.05__T_5us /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '100000 16' --cpu-type o3 --mem-lat 300ns --mem-bw 50GiB/s --fault-prob 0.05 --handler 5us
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=100000 K=16 last=99999
+[55] Done: L=300ns lambda=0.05 handler=5us
+Array task 7 complete.

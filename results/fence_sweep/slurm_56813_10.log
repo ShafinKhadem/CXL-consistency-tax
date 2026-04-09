@@ -1,0 +1,35 @@
+[2026-04-08T20:39:46.776] error: slurm_get_node_energy: Socket timed out on send/recv operation
+[2026-04-08T20:39:46.777] error: _get_joules_task: can't get info from slurmd
+Task 10: L=40ns BW=25GiB/s K=1
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    37.252903 rounded to 37
+warn: rounding error > tolerance
+    37.252903 rounded to 37
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    37.252903 rounded to 37
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  8 2026 20:09:11
+gem5 started Apr  8 2026 20:39:49
+gem5 executing on spartacus-7, pid 2788494
+command line: /home/hasanat/abrar/cxl_tax/gem5/build/X86/gem5.opt -d /home/hasanat/abrar/cxl_tax/results/fence_sweep/L_40ns_BW_25GiB/s_K_1 /home/hasanat/abrar/cxl_tax/configs/cxl_tax_se.py --bin /home/hasanat/abrar/cxl_tax/benches/fence_sweep --args '2000000 1' --mem-lat 40ns --mem-bw 25GiB/s
+
+info: Standard input is not a terminal, disabling listeners.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/hasanat/abrar/cxl_tax/benches/fence_sweep'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+done n=2000000 K=1 last=1999999
+Done: L=40ns BW=25GiB/s K=1
+[2026-04-08T20:40:16.721] error: slurm_get_node_energy: Socket timed out on send/recv operation
+[2026-04-08T20:40:16.721] error: _get_joules_task: can't get info from slurmd
+[2026-04-08T20:40:26.731] error: slurm_get_node_energy: Socket timed out on send/recv operation
+[2026-04-08T20:40:26.731] error: _get_joules_task: can't get info from slurmd
