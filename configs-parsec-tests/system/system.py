@@ -26,365 +26,180 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # Authors: Jason Lowe-Power
+# Updated for gem5 25.1 stable release
+
+"""
+MySystem: An X86 system configuration for PARSEC benchmarking.
+
+This configuration uses gem5 25.1's component library to set up
+a modern, modular system with switchable CPU types suitable for
+running PARSEC benchmarks with full system simulation.
+"""
 
 import m5
-from m5.objects import *
-from m5.util import convert
-from fs_tools import *
-from caches import *
+
+from gem5.coherence_protocol import CoherenceProtocol
+from gem5.components.boards.x86_board import X86Board
+from gem5.components.memory import DualChannelDDR4_2400
+from gem5.components.processors.cpu_types import CPUTypes
+from gem5.components.processors.simple_switchable_processor import (
+    SimpleSwitchableProcessor,
+)
+from gem5.isas import ISA
+
+from .caches import CacheHierarchy
 
 
-class MySystem(LinuxX86System):
+class MySystem:
+    """
+    A simple X86 system with switchable CPUs for PARSEC benchmarking.
 
-    SimpleOpts.add_option("--no_host_parallel", default=False,
-                action="store_true",
-                help="Do NOT run gem5 on multiple host threads (kvm only)")
-
-    SimpleOpts.add_option("--second_disk", default='',
-                          help="The second disk image to mount (/dev/hdb)")
+    This class wraps gem5 25.1's X86Board to provide a compatible interface
+    with the legacy system.py API while using modern gem5 components.
+    """
 
     def __init__(self, kernel, disk, num_cpus, opts, no_kvm=False):
-        super(MySystem, self).__init__()
+        """
+        Create a new MySystem for running PARSEC benchmarks.
+
+        Parameters
+        ----------
+        kernel : str
+            Path to the kernel image
+        disk : str
+            Path to the disk image
+        num_cpus : int
+            Number of CPU cores
+        opts : object
+            Options object with configuration parameters
+        no_kvm : bool
+            If True, use AtomicSimpleCPU instead of KVM (default: False)
+        """
+        self._kernel = kernel
+        self._disk = disk
+        self._num_cpus = num_cpus
         self._opts = opts
         self._no_kvm = no_kvm
+        self._host_parallel = not (
+            hasattr(opts, "no_host_parallel") and opts.no_host_parallel
+        )
 
-        self._host_parallel = not self._opts.no_host_parallel
+        # Determine the starting CPU type
+        starting_cpu_type = CPUTypes.ATOMIC if no_kvm else CPUTypes.KVM
 
-        # Set up the clock domain and the voltage domain
-        self.clk_domain = SrcClockDomain()
-        self.clk_domain.clock = '2.3GHz'
-        self.clk_domain.voltage_domain = VoltageDomain()
+        # Set up the processor with switchable core types
+        # KVM for boot, O3 for ROI (detailed simulation)
+        self.processor = SimpleSwitchableProcessor(
+            starting_core_type=starting_cpu_type,
+            switch_core_type=CPUTypes.O3,
+            isa=ISA.X86,
+            num_cores=num_cpus,
+        )
 
-        mem_size = '4GB'
-        self.mem_ranges = [AddrRange('100MB'), # For kernel
-                           AddrRange(0xC0000000, size=0x100000), # For I/0
-                           AddrRange(Addr('4GB'), size = mem_size) # All data
-                           ]
+        # Some hosts block perf_event_open for unprivileged users. Disable
+        # KVM perf counters to avoid startup panic when booting with KVM cores.
+        if starting_cpu_type == CPUTypes.KVM:
+            for proc in self.processor.start:
+                proc.core.usePerf = False
 
-        # Create the main memory bus
-        # This connects to main memory
-        self.membus = SystemXBar(width = 64) # 64-byte width
-        self.membus.badaddr_responder = BadAddr()
-        self.membus.default = Self.badaddr_responder.pio
+        # Set up memory (3GiB max for X86Board due to I/O hole)
+        self.memory = DualChannelDDR4_2400(size="2GiB")
 
-        # Set up the system port for functional access from the simulator
-        self.system_port = self.membus.slave
+        # Set up cache hierarchy with configurable sizes
+        cache_hierarchy = CacheHierarchy(opts)
 
-        self.initFS(self.membus, num_cpus)
+        # Create the X86Board with all components
+        self.board = X86Board(
+            clk_freq="2.3GHz",
+            processor=self.processor,
+            memory=self.memory,
+            cache_hierarchy=cache_hierarchy,
+        )
 
+        # Store kernel and disk paths for later use
+        # Don't set the workload yet - it will be set when readfile_contents is provided
+        self._kernel_path = kernel
+        self._disk_path = disk
 
-        # Replace these paths with the path to your disk images.
-        # The first disk is the root disk. The second could be used for swap
-        # or anything else.
+        # Store mem_mode for compatibility
+        self.mem_mode = "atomic_noncaching" if not no_kvm else "timing"
 
-        self.setDiskImages(disk, disk)
+    @property
+    def cpu(self):
+        """Get the current (boot) CPUs. Accessed after instantiation."""
+        return [core.get_simobject() for core in self.processor.get_cores()]
 
-	if opts.second_disk:
-            self.setDiskImages(disk, opts.second_disk)
-        else:
-            self.setDiskImages(disk, disk)
+    @property
+    def timingCpu(self):
+        """Get the timing CPUs for ROI. Alias for backward compatibility."""
+        return self.cpu
 
-        # Change this path to point to the kernel you want to use
-        self.kernel = kernel
-        # Options specified on the kernel command line
-        boot_options = ['earlyprintk=ttyS0', 'console=ttyS0', 'lpj=7999923',
-                         'root=/dev/hda1']
+    @property
+    def o3Cpu(self):
+        """Get the O3 CPUs (which are the switch cores in this setup)."""
+        return self.cpu
 
-        self.boot_osflags = ' '.join(boot_options)
+    def set_kernel_disk_workload(self, readfile_contents):
+        """
+        Set the kernel disk workload with custom readfile contents.
 
-        # Create the CPUs for our system.
-        self.createCPU(num_cpus)
+        Wraps local file paths in proper gem5 Resource objects.
 
-        # Create the cache heirarchy for the system.
-        self.createCacheHierarchy()
+        Parameters
+        ----------
+        readfile_contents : str
+            The command/script to execute in the simulated system
+        """
+        from gem5.resources.resource import BinaryResource, DiskImageResource
 
-        # Set up the interrupt controllers for the system (x86 specific)
-        self.setupInterrupts()
+        # Wrap file paths in Resource objects that have get_local_path() method
+        kernel_resource = BinaryResource(local_path=self._kernel_path)
+        disk_resource = DiskImageResource(local_path=self._disk_path)
 
-        self.createMemoryControllersDDR4()
-
-        if self._host_parallel:
-            # To get the KVM CPUs to run on different host CPUs
-            # Specify a different event queue for each CPU
-            for i,cpu in enumerate(self.cpu):
-                for obj in cpu.descendants():
-                    obj.eventq_index = 0
-                cpu.eventq_index = i + 1
+        # Set up the workload with Resource objects
+        self.board.set_kernel_disk_workload(
+            kernel=kernel_resource,
+            disk_image=disk_resource,
+            readfile_contents=readfile_contents,
+        )
 
     def getHostParallel(self):
+        """
+        Check if host parallel execution is enabled.
+
+        Returns
+        -------
+        bool
+            True if KVM can run on multiple host threads, False otherwise
+        """
         return self._host_parallel
 
     def totalInsts(self):
-        return sum([cpu.totalInsts() for cpu in self.cpu])
+        """
+        Get the total number of instructions executed across all CPUs.
 
-    def createCPU(self, num_cpus):
-        if self._no_kvm:
-            self.cpu = [AtomicSimpleCPU(cpu_id = i, switched_out = False)
-                              for i in range(num_cpus)]
-            map(lambda c: c.createThreads(), self.cpu)
-            self.mem_mode = 'timing'
+        Returns the committed instructions from all cores.
 
-        else:
-            # Note KVM needs a VM and atomic_noncaching
-            self.cpu = [X86KvmCPU(cpu_id = i)
-                        for i in range(num_cpus)]
-            map(lambda c: c.createThreads(), self.cpu)
-            self.kvm_vm = KvmVM()
-            self.mem_mode = 'atomic_noncaching'
-
-            self.atomicCpu = [AtomicSimpleCPU(cpu_id = i,
-                                            switched_out = True)
-                                            for i in range(num_cpus)]
-            map(lambda c: c.createThreads(), self.atomicCpu)
-
-        self.timingCpu = [TimingSimpleCPU(cpu_id = i,
-                                        switched_out = True)
-				                        for i in range(num_cpus)]
-
-        map(lambda c: c.createThreads(), self.timingCpu)
+        Returns
+        -------
+        int
+            Total instructions executed by all cores
+        """
+        return self.processor.get_total_instructions()
 
     def switchCpus(self, old, new):
-        assert(new[0].switchedOut())
-        m5.switchCpus(self, zip(old, new))
+        """
+        Switch from one set of CPUs to another.
 
-    def setDiskImages(self, img_path_1, img_path_2):
-        disk0 = CowDisk(img_path_1)
-        disk2 = CowDisk(img_path_2)
-        self.pc.south_bridge.ide.disks = [disk0, disk2]
+        This is typically used to switch from KVM (fast) CPUs during boot
+        to more detailed timing/O3 CPUs for detailed performance analysis.
 
-    def createCacheHierarchy(self):
-        # Create an L3 cache (with crossbar)
-        self.l3bus = L2XBar(width = 64,
-                            snoop_filter = SnoopFilter(max_capacity='32MB'))
-
-        for cpu in self.cpu:
-            # Create a memory bus, a coherent crossbar, in this case
-            cpu.l2bus = L2XBar()
-
-            # Create an L1 instruction and data cache
-            cpu.icache = L1ICache(self._opts)
-            cpu.dcache = L1DCache(self._opts)
-            cpu.mmucache = MMUCache()
-
-            # Connect the instruction and data caches to the CPU
-            cpu.icache.connectCPU(cpu)
-            cpu.dcache.connectCPU(cpu)
-            cpu.mmucache.connectCPU(cpu)
-
-            # Hook the CPU ports up to the l2bus
-            cpu.icache.connectBus(cpu.l2bus)
-            cpu.dcache.connectBus(cpu.l2bus)
-            cpu.mmucache.connectBus(cpu.l2bus)
-
-            # Create an L2 cache and connect it to the l2bus
-            cpu.l2cache = L2Cache(self._opts)
-            cpu.l2cache.connectCPUSideBus(cpu.l2bus)
-
-            # Connect the L2 cache to the L3 bus
-            cpu.l2cache.connectMemSideBus(self.l3bus)
-
-        self.l3cache = L3Cache(self._opts)
-        self.l3cache.connectCPUSideBus(self.l3bus)
-
-        # Connect the L3 cache to the membus
-        self.l3cache.connectMemSideBus(self.membus)
-
-    def setupInterrupts(self):
-        for cpu in self.cpu:
-            # create the interrupt controller CPU and connect to the membus
-            cpu.createInterruptController()
-
-            # For x86 only, connect interrupts to the memory
-            # Note: these are directly connected to the memory bus and
-            #       not cached
-            cpu.interrupts[0].pio = self.membus.master
-            cpu.interrupts[0].int_master = self.membus.slave
-            cpu.interrupts[0].int_slave = self.membus.master
-
-    # Memory latency: Using the smaller number from [3]: 96ns
-    def createMemoryControllersDDR4(self):
-        self._createMemoryControllers(8, DDR4_2400_16x4)
-
-    def _createMemoryControllers(self, num, cls):
-        kernel_controller = self._createKernelMemoryController(cls)
-
-        ranges = self._getInterleaveRanges(self.mem_ranges[-1], num, 7, 20)
-
-        self.mem_cntrls = [
-            cls(range = ranges[i],
-                port = self.membus.master)
-            for i in range(num)
-        ] + [kernel_controller]
-
-    def _createKernelMemoryController(self, cls):
-        return cls(range = self.mem_ranges[0],
-                   port = self.membus.master)
-
-    def _getInterleaveRanges(self, rng, num, intlv_low_bit, xor_low_bit):
-        from math import log
-        bits = int(log(num, 2))
-        if 2**bits != num:
-            m5.fatal("Non-power of two number of memory controllers")
-
-        intlv_bits = bits
-        ranges = [
-            AddrRange(start=rng.start,
-                      end=rng.end,
-                      intlvHighBit = intlv_low_bit + intlv_bits - 1,
-                      xorHighBit = xor_low_bit + intlv_bits - 1,
-                      intlvBits = intlv_bits,
-                      intlvMatch = i)
-                for i in range(num)
-            ]
-
-        return ranges
-
-    def initFS(self, membus, cpus):
-        self.pc = Pc()
-
-        # Constants similar to x86_traits.hh
-        IO_address_space_base = 0x8000000000000000
-        pci_config_address_space_base = 0xc000000000000000
-        interrupts_address_space_base = 0xa000000000000000
-        APIC_range_size = 1 << 12;
-
-        # North Bridge
-        self.iobus = IOXBar()
-        self.bridge = Bridge(delay='50ns')
-        self.bridge.master = self.iobus.slave
-        self.bridge.slave = membus.master
-        # Allow the bridge to pass through:
-        #  1) kernel configured PCI device memory map address: address range
-        #  [0xC0000000, 0xFFFF0000). (The upper 64kB are reserved for m5ops.)
-        #  2) the bridge to pass through the IO APIC (two pages, already
-        #     contained in 1),
-        #  3) everything in the IO address range up to the local APIC, and
-        #  4) then the entire PCI address space and beyond.
-        self.bridge.ranges = \
-            [
-            AddrRange(0xC0000000, 0xFFFF0000),
-            AddrRange(IO_address_space_base,
-                      interrupts_address_space_base - 1),
-            AddrRange(pci_config_address_space_base,
-                      Addr.max)
-            ]
-
-        # Create a bridge from the IO bus to the memory bus to allow access
-        # to the local APIC (two pages)
-        self.apicbridge = Bridge(delay='50ns')
-        self.apicbridge.slave = self.iobus.master
-        self.apicbridge.master = membus.slave
-        self.apicbridge.ranges = [AddrRange(interrupts_address_space_base,
-                                            interrupts_address_space_base +
-                                            cpus * APIC_range_size
-                                            - 1)]
-
-        # connect the io bus
-        self.pc.attachIO(self.iobus)
-
-        # Add a tiny cache to the IO bus.
-        # This cache is required for the classic memory model for coherence
-        self.iocache = Cache(assoc=8,
-                            tag_latency = 50,
-                            data_latency = 50,
-                            response_latency = 50,
-                            mshrs = 20,
-                            size = '1kB',
-                            tgts_per_mshr = 12,
-                            addr_ranges = self.mem_ranges)
-        self.iocache.cpu_side = self.iobus.master
-        self.iocache.mem_side = self.membus.slave
-
-        self.intrctrl = IntrControl()
-
-        ###############################################
-
-        # Add in a Bios information structure.
-        self.smbios_table.structures = [X86SMBiosBiosInformation()]
-
-        # Set up the Intel MP table
-        base_entries = []
-        ext_entries = []
-        for i in range(cpus):
-            bp = X86IntelMPProcessor(
-                    local_apic_id = i,
-                    local_apic_version = 0x14,
-                    enable = True,
-                    bootstrap = (i ==0))
-            base_entries.append(bp)
-        io_apic = X86IntelMPIOAPIC(
-                id = cpus,
-                version = 0x11,
-                enable = True,
-                address = 0xfec00000)
-        self.pc.south_bridge.io_apic.apic_id = io_apic.id
-        base_entries.append(io_apic)
-        pci_bus = X86IntelMPBus(bus_id = 0, bus_type='PCI   ')
-        base_entries.append(pci_bus)
-        isa_bus = X86IntelMPBus(bus_id = 1, bus_type='ISA   ')
-        base_entries.append(isa_bus)
-        connect_busses = X86IntelMPBusHierarchy(bus_id=1,
-                subtractive_decode=True, parent_bus=0)
-        ext_entries.append(connect_busses)
-        pci_dev4_inta = X86IntelMPIOIntAssignment(
-                interrupt_type = 'INT',
-                polarity = 'ConformPolarity',
-                trigger = 'ConformTrigger',
-                source_bus_id = 0,
-                source_bus_irq = 0 + (4 << 2),
-                dest_io_apic_id = io_apic.id,
-                dest_io_apic_intin = 16)
-        base_entries.append(pci_dev4_inta)
-        def assignISAInt(irq, apicPin):
-            assign_8259_to_apic = X86IntelMPIOIntAssignment(
-                    interrupt_type = 'ExtInt',
-                    polarity = 'ConformPolarity',
-                    trigger = 'ConformTrigger',
-                    source_bus_id = 1,
-                    source_bus_irq = irq,
-                    dest_io_apic_id = io_apic.id,
-                    dest_io_apic_intin = 0)
-            base_entries.append(assign_8259_to_apic)
-            assign_to_apic = X86IntelMPIOIntAssignment(
-                    interrupt_type = 'INT',
-                    polarity = 'ConformPolarity',
-                    trigger = 'ConformTrigger',
-                    source_bus_id = 1,
-                    source_bus_irq = irq,
-                    dest_io_apic_id = io_apic.id,
-                    dest_io_apic_intin = apicPin)
-            base_entries.append(assign_to_apic)
-        assignISAInt(0, 2)
-        assignISAInt(1, 1)
-        for i in range(3, 15):
-            assignISAInt(i, i)
-        self.intel_mp_table.base_entries = base_entries
-        self.intel_mp_table.ext_entries = ext_entries
-
-        entries = \
-           [
-            # Mark the first megabyte of memory as reserved
-            X86E820Entry(addr = 0, size = '639kB', range_type = 1),
-            X86E820Entry(addr = 0x9fc00, size = '385kB', range_type = 2),
-            # Mark the rest of physical memory as available
-            X86E820Entry(addr = 0x100000,
-                    size = '%dB' % (self.mem_ranges[0].size() - 0x100000),
-                    range_type = 1),
-            ]
-        # Mark [mem_size, 3GB) as reserved if memory less than 3GB, which
-        # force IO devices to be mapped to [0xC0000000, 0xFFFF0000). Requests
-        # to this specific range can pass though bridge to iobus.
-        entries.append(X86E820Entry(addr = self.mem_ranges[0].size(),
-            size='%dB' % (0xC0000000 - self.mem_ranges[0].size()),
-            range_type=2))
-
-        # Reserve the last 16kB of the 32-bit address space for m5ops
-        entries.append(X86E820Entry(addr = 0xFFFF0000, size = '64kB',
-                                    range_type=2))
-
-        # Add the rest of memory. This is where all the actual data is
-        entries.append(X86E820Entry(addr = self.mem_ranges[-1].start,
-            size='%dB' % (self.mem_ranges[-1].size()),
-            range_type=1))
-
-        self.e820_table.entries = entries
+        Parameters
+        ----------
+        old : list
+            List of CPUs to switch from
+        new : list
+            List of CPUs to switch to
+        """
+        # In stdlib this processor manages switching internally.
+        self.processor.switch()

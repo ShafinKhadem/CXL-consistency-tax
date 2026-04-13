@@ -25,94 +25,170 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # Authors: Jason Lowe-Power, Mahyar Samani
+# Updated for gem5 25.1 stable release
 
-"""Script to run PARSEC benchmarks with gem5.
-The script expects kernel, diskimage, cpu (kvm or timing),
+"""Script to run PARSEC benchmarks with gem5 25.1.
+
+The script expects kernel, diskimage, cpu (kvm, timing, or o3),
 benchmark, benchmark size, and number of cpu cores as arguments.
-This script is best used if your disk-image has workloads tha have
+This script is best used with disk-images that have workloads with
 ROI annotations compliant with m5 utility. You can use the script in
 ../disk-images/parsec/ with the parsec-benchmark repo at
 https://github.com/darchr/parsec-benchmark.git to create a working
 disk-image for this script.
 """
-import errno
+import argparse
 import os
 import sys
 import time
 
 import m5
-import m5.ticks
-import SimpleOpts
-from m5.objects import *
-from system import *
+from system import MySystem
 
-sys.path.append("gem5/configs/common/")  # For the next line...
+from gem5.simulate.exit_event import ExitEvent
+from gem5.simulate.simulator import Simulator
 
 
 def writeBenchScript(dir, bench, size):
     """
-    This method creates a script in dir which will be eventually
-    passed to the simulated system (to run a specific benchmark
-    at bootup).
-    """
-    file_name = "{}/run_{}".format(dir, bench)
-    bench_file = open(file_name, "w+")
-    bench_file.write("cd /home/gem5/parsec-benchmark\n")
-    bench_file.write("source env.sh\n")
-    bench_file.write("parsecmgmt -a run -p {} -c gcc-hooks -i {}\n".format(bench, size))
+    Create a script in dir to run a PARSEC benchmark.
 
-    # sleeping for sometime makes sure
-    # that the benchmark's output has been
-    # printed to the console
-    bench_file.write("sleep 5 \n")
-    bench_file.write("m5 exit \n")
-    bench_file.close()
+    This script will be executed in the simulated system at bootup.
+    """
+    # Ensure the directory exists
+    os.makedirs(dir, exist_ok=True)
+
+    file_name = "{}/run_{}".format(dir, bench)
+    with open(file_name, "w+") as bench_file:
+        bench_file.write("#!/bin/bash\n")
+        bench_file.write("cd /home/gem5/parsec-benchmark\n")
+        bench_file.write("source env.sh\n")
+        bench_file.write(
+            "parsecmgmt -a run -p {} -c gcc-hooks -i {}\n".format(bench, size)
+        )
+        # Sleeping ensures benchmark output is printed properly
+        bench_file.write("sleep 5\n")
+        bench_file.write("m5 exit\n")
+
     return file_name
 
 
+def handle_workbegin(system_obj):
+    """Handle workbegin exit event."""
+    print("Reached beginning of ROI - starting detailed simulation")
+    print("Resetting stats at the start of ROI!")
+    m5.stats.reset()
+    return False  # Continue simulation
+
+
+def handle_workend(system_obj):
+    """Handle workend exit event."""
+    print("Reached end of ROI - switching back to fast CPU")
+    print("Dumping stats at the end of the ROI!")
+    m5.stats.dump()
+    return True  # Exit simulation
+
+
 if __name__ == "__m5_main__":
-    (opts, args) = SimpleOpts.parse_args()
-    kernel, disk, cpu, benchmark, size, num_cpus = args
+    parser = argparse.ArgumentParser(description="Run PARSEC benchmarks with gem5 25.1")
 
-    if not cpu in ["kvm", "timing"]:
-        m5.fatal("cpu not supported")
+    parser.add_argument(
+        "kernel",
+        help="Path to the kernel image",
+    )
+    parser.add_argument(
+        "disk",
+        help="Path to the disk image",
+    )
+    parser.add_argument(
+        "cpu",
+        choices=["kvm", "timing", "o3"],
+        help="CPU type for detailed simulation (after workbegin)",
+    )
+    parser.add_argument(
+        "benchmark",
+        help="PARSEC benchmark to run",
+    )
+    parser.add_argument(
+        "size",
+        help="Input size (simsmall, simmedium, simlarge)",
+    )
+    parser.add_argument(
+        "num_cpus",
+        type=int,
+        help="Number of CPU cores",
+    )
 
-    # create the system we are going to simulate
-    system = MySystem(kernel, disk, int(num_cpus), opts, no_kvm=False)
+    # Parse arguments - support both old and new style
+    if len(sys.argv) > 1 and sys.argv[1] == "__m5_main__":
+        # old SimpleOpts style - skip m5
+        args = parser.parse_args(sys.argv[2:])
+    else:
+        args = parser.parse_args()
 
-    # Exit from guest on workbegin/workend
-    system.exit_on_work_items = True
+    kernel = args.kernel
+    disk = args.disk
+    cpu = args.cpu
+    benchmark = args.benchmark
+    size = args.size
+    num_cpus = args.num_cpus
 
-    # Create and pass a script to the simulated system to run the reuired
-    # benchmark
-    system.readfile = writeBenchScript(m5.options.outdir, benchmark, size)
+    # Create options object for system configuration
+    class SystemOpts:
+        no_host_parallel = False
+        second_disk = ""
+        l1i_size = None
+        l1d_size = None
+        l2_size = None
 
-    # set up the root SimObject and start the simulation
-    root = Root(full_system=True, system=system)
+    opts = SystemOpts()
+
+    # Create the system for PARSEC simulation
+    system = MySystem(kernel, disk, num_cpus, opts, no_kvm=False)
+
+    # Create the workload script
+    workload_script = writeBenchScript(m5.options.outdir, benchmark, size)
+
+    # Read the workload script and pass it to the system
+    with open(workload_script, "r") as f:
+        workload_contents = f.read()
+
+    # Set the workload
+    system.set_kernel_disk_workload(workload_contents)
+
+    # Disable long-running job listeners
+    m5.disableAllListeners()
+
+    # Required when using Standard Library boards with legacy m5.instantiate.
+    root = system.board._pre_instantiate()
 
     if system.getHostParallel():
-        # Required for running kvm on multiple host cores.
-        # Uses gem5's parallel event queue feature
+        # Required for running KVM on multiple host cores.
+        # Uses gem5's parallel event queue feature.
         # Note: The simulator is quite picky about this number!
         root.sim_quantum = int(1e9)  # 1 ms
 
-    # needed for long running jobs
-    m5.disableAllListeners()
-
-    # instantiate all of the objects we've created above
+    # Instantiate all of the objects we've created
     m5.instantiate()
 
-    globalStart = time.time()
+    global_start = time.time()
 
     print("Running the simulation")
-    print("Using cpu: {}".format(cpu))
+    print("Using KVM CPU for boot")
+    print("Benchmark:", benchmark)
+    print("Benchmark size:", size)
+    print("Number of cores:", num_cpus)
 
+    # Reset stats before simulation
+    m5.stats.reset()
+
+    # Start the simulation and look for workbegin
     start_tick = m5.curTick()
     end_tick = m5.curTick()
     start_insts = system.totalInsts()
     end_insts = system.totalInsts()
-    m5.stats.reset()
 
+    print("\nWaiting for workbegin()...")
     exit_event = m5.simulate()
 
     if exit_event.getCause() == "workbegin":
@@ -123,9 +199,13 @@ if __name__ == "__m5_main__":
         m5.stats.reset()
         start_tick = m5.curTick()
         start_insts = system.totalInsts()
-        # switching to timing cpu if argument cpu == atomic
+
+        # Switch to detailed CPU model for the ROI
+        print(f"Switching to {cpu} CPU model for detailed simulation...")
         if cpu == "timing":
             system.switchCpus(system.cpu, system.timingCpu)
+        elif cpu == "o3":
+            system.switchCpus(system.cpu, system.o3Cpu)
     else:
         print("Unexpected termination of simulation!")
         print()
@@ -142,7 +222,7 @@ if __name__ == "__m5_main__":
             "Total wallclock time: %.2fs, %.2f min"
             % (time.time() - globalStart, (time.time() - globalStart) / 60)
         )
-        exit()
+        exit(1)
 
     # Simulate the ROI
     exit_event = m5.simulate()
@@ -158,9 +238,11 @@ if __name__ == "__m5_main__":
         end_tick = m5.curTick()
         end_insts = system.totalInsts()
         m5.stats.reset()
-        # switching to atomic cpu if argument cpu == atomic
+        # switch back to boot cpu model after the ROI
         if cpu == "timing":
             system.switchCpus(system.timingCpu, system.cpu)
+        elif cpu == "o3":
+            system.switchCpus(system.o3Cpu, system.cpu)
     else:
         print("Unexpected termination of simulation!")
         print()
@@ -177,7 +259,7 @@ if __name__ == "__m5_main__":
             "Total wallclock time: %.2fs, %.2f min"
             % (time.time() - globalStart, (time.time() - globalStart) / 60)
         )
-        exit()
+        exit(1)
 
     # Simulate the remaning part of the benchmark
     exit_event = m5.simulate()

@@ -142,13 +142,11 @@ if __name__ == "__main__":
     jobs = []
 
     sizes = ["simsmall"]
-    cpus = ["timing"]
+    cpus = ["o3"]
 
     for cpu in cpus:
         for num_cpu in num_cpus:
             for size in sizes:
-                if cpu == "timing" and size != "simsmall":
-                    continue
                 for bm in benchmarks:
                     run = gem5Run.createFSRun(
                         "parsec_tests",
@@ -176,5 +174,5 @@ if __name__ == "__main__":
                     # )
                     jobs.append(run)
 
-    with mp.Pool(mp.cpu_count() // 2) as pool:
+    with mp.Pool(2) as pool:
         pool.map(worker, jobs)
