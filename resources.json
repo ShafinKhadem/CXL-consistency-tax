@@ -1,0 +1,87 @@
+[
+    {
+        "id": "x86-linux-kernel-4.19.83",
+        "resource_version": "1.0.0",
+        "category": "kernel",
+        "author": [],
+        "code_examples": [
+            {
+                "example": "https://github.com/gem5/gem5/tree/develop/configs/example/gem5_library/x86-gapbs-benchmarks.py",
+                "tested": true
+            },
+            {
+                "example": "https://github.com/gem5/gem5/tree/develop/configs/example/gem5_library/x86-npb-benchmarks.py",
+                "tested": true
+            },
+            {
+                "example": "https://github.com/gem5/gem5/tree/develop/configs/example/gem5_library/x86-parsec-benchmarks.py",
+                "tested": true
+            },
+            {
+                "example": "https://github.com/gem5/gem5/tree/develop/configs/example/gem5_library/x86-spec-cpu2006-benchmarks.py",
+                "tested": false
+            },
+            {
+                "example": "https://github.com/gem5/gem5/tree/develop/configs/example/gem5_library/x86-spec-cpu2017-benchmarks.py",
+                "tested": false
+            }
+        ],
+        "description": "The linux kernel (v4.19.83), compiled to X86.",
+        "source_url": "https://github.com/gem5/gem5-resources/tree/develop/src/linux-kernel",
+        "license": "",
+        "tags": [
+            "linux-kernel"
+        ],
+        "example_usage": "obtain_resource(resource_id=\"x86-linux-kernel-4.19.83\")",
+        "gem5_versions": [
+            "23.0",
+            "23.1",
+            "24.0",
+            "24.1",
+            "25.1"
+        ],
+        "size": 24487616,
+        "url": "https://dist.gem5.org/dist/develop/kernels/x86/static/vmlinux-4.19.83",
+        "md5sum": "28228eac2eea81ee3ce36305b7641c18",
+        "is_zipped": false,
+        "architecture": "X86",
+        "source": "src/linux-kernel"
+    },
+    {
+        "id": "x86-parsec",
+        "resource_version": "1.0.0",
+        "category": "disk-image",
+        "author": [
+            "Mahyar Samani"
+        ],
+        "code_examples": [
+            {
+                "example": "https://github.com/gem5/gem5/tree/develop/configs/example/gem5_library/x86-parsec-benchmarks.py",
+                "tested": true
+            }
+        ],
+        "description": "A disk image containing the PARSEC benchmark suite, compiled to X86, built on top of Ubuntu 18.04.",
+        "source_url": "https://github.com/gem5/gem5-resources/tree/develop/src/parsec",
+        "license": " BSD-3-Clause",
+        "tags": [
+            "benchmark",
+            "x86",
+            "fullsystem"
+        ],
+        "example_usage": "obtain_resource(resource_id=\"x86-parsec\")",
+        "gem5_versions": [
+            "23.0",
+            "23.1",
+            "24.0",
+            "24.1",
+            "25.1"
+        ],
+        "size": 8084838113,
+        "url": "https://dist.gem5.org/dist/develop/images/x86/ubuntu-18-04/parsec.img.gz",
+        "md5sum": "19131e62c5b10f137948ec5975391477",
+        "is_zipped": true,
+        "architecture": "X86",
+        "root_partition": "1",
+        "source": "src/parsec"
+    }
+]
