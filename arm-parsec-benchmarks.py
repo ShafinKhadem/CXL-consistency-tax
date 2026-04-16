@@ -28,7 +28,7 @@
 Script to run PARSEC benchmarks with gem5.
 The script expects a benchmark program name and the simulation
 size. The system is fixed with 2 CPU cores, Private Two Level system
-cache and 2 GiB memory. It uses the x86 board.
+cache, and 2 GiB memory. It uses the ARM board.
 
 This script will count the total number of instructions executed
 in the ROI. It also tracks how much wallclock and simulated time.
@@ -37,9 +37,9 @@ Usage:
 ------
 
 ```
-scons build/X86/gem5.opt
-./build/X86/gem5.opt \
-    configs/example/gem5_library/x86-parsec-benchmarks.py \
+scons build/ARM/gem5.opt
+./build/ARM/gem5.opt \
+    configs/example/gem5_library/arm-parsec-benchmarks.py \
     --benchmark <benchmark_name> \
     --size <simulation_size>
 ```
@@ -48,8 +48,9 @@ import argparse
 import time
 
 import m5
+from m5.objects import ArmDefaultRelease, VExpress_GEM5_V1
 
-from gem5.components.boards.x86_board import X86Board
+from gem5.components.boards.arm_board import ArmBoard
 from gem5.components.cachehierarchies.classic.private_l1_private_l2_cache_hierarchy import (
     PrivateL1PrivateL2CacheHierarchy,
 )
@@ -65,7 +66,8 @@ from gem5.simulate.simulator import Simulator
 from gem5.utils.requires import requires
 
 # We check for the required gem5 build.
-requires(isa_required=ISA.X86, kvm_required=True)
+requires(isa_required=ISA.ARM, kvm_required=True)
+
 
 # Following are the list of benchmark programs for parsec.
 
@@ -134,7 +136,7 @@ memory = SingleChannelSimpleMemory(
 processor = SimpleSwitchableProcessor(
     starting_core_type=CPUTypes.KVM,
     switch_core_type=CPUTypes.O3,
-    isa=ISA.X86,
+    isa=ISA.ARM,
     num_cores=2,
 )
 
@@ -143,13 +145,24 @@ for core in processor._switchable_cores["switch"]:
     # Target the underlying SimObject
     core.get_simobject().numROBEntries = 512
 
-# Here we setup the board. The X86Board allows for Full-System X86 simulations
+# The ArmBoard requires a `release` to be specified. This adds all the
+# extensions or features to the system. We are setting this to for_kvm()
+# to enable KVM simulation.
+release = ArmDefaultRelease.for_kvm()
 
-board = X86Board(
+# The platform sets up the memory ranges of all the on-chip and off-chip
+# devices present on the ARM system. ARM KVM only works with VExpress_GEM5_V1
+# on the ArmBoard at the moment.
+platform = VExpress_GEM5_V1()
+
+# Here we setup the board. The ArmBoard allows for Full-System ARM simulations.
+board = ArmBoard(
     clk_freq="3GHz",
     processor=processor,
     memory=memory,
     cache_hierarchy=cache_hierarchy,
+    release=release,
+    platform=platform,
 )
 
 # Here we set the FS workload, i.e., parsec benchmark
@@ -175,20 +188,14 @@ for bench in benchmark_choices:
 command += "m5 exit;"
 
 disk_img = DiskImageResource(
-    "/media/shafin/New Volume/gem5-resources/src/gapbs/disk-image-ubuntu-24-04/x86-parsec"
+    "/media/shafin/New Volume/gem5-resources/src/gapbs/disk-image-ubuntu-24-04/arm-parsec",
+    root_partition="2",
 )
 board.set_kernel_disk_workload(
-    kernel=obtain_resource(
-        "x86-linux-kernel-6.8.0-52-generic", resource_version="1.0.0"
-    ),
     disk_image=disk_img,
+    bootloader=obtain_resource("arm64-bootloader-foundation", resource_version="2.0.0"),
+    kernel=obtain_resource("arm64-linux-kernel-6.8.12", resource_version="1.0.0"),
     readfile_contents=command,
-    kernel_args=[
-        "earlyprintk=ttyS0",
-        "console=ttyS0",
-        "lpj=7999923",
-        "root=/dev/sda2",
-    ],
 )
 
 
