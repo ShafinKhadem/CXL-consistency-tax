@@ -9,3 +9,4 @@ disk-image/parsec/parsec-image/parsec
 disk-image/packer_cache
 linux-stable/
 gem5bootcamp-2024/
+rw_ratio_bench
