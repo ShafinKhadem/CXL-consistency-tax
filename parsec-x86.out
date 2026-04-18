@@ -1,0 +1,235 @@
+Extracting input_simdev.tar for blackscholes...
+Running blackscholes with simdev configuration...
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 17 2026 19:30:02
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 426376
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/amd64-linux.gcc-hooks/bin/blackscholes --binary-args '1 in_16.txt prices.txt'
+
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/amd64-linux.gcc-hooks/bin/blackscholes
+  isa: X86
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  binary_args: 1 in_16.txt prices.txt
+Running the simulation
+Using O3 cpu
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/amd64-linux.gcc-hooks/bin/blackscholes'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Num of Options: 16
+Num of Runs: 100
+Size of data: 640
+[HOOKS] Entering ROI
+warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigprocmask(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall madvise(...)
+warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
+[HOOKS] Leaving ROI
+[HOOKS] Total time spent in ROI: 0.000127s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 21.12 seconds of wall clock time!
+Extracting input_simdev.tar for freqmine...
+Running freqmine with simdev configuration...
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 17 2026 19:30:24
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 426825
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/amd64-linux.gcc-hooks/bin/freqmine --binary-args 'T10I4D100K_1k.dat 3'
+
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/amd64-linux.gcc-hooks/bin/freqmine
+  isa: X86
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  binary_args: T10I4D100K_1k.dat 3
+Running the simulation
+Using O3 cpu
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/amd64-linux.gcc-hooks/bin/freqmine'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+[HOOKS] Entering ROI
+warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
+transaction number is 1000
+src/sim/syscall_emul.cc:86: warn: ignoring syscall sched_setaffinity(...)
+warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
+[HOOKS] Leaving ROI
+679
+3640
+2765
+2117
+1269
+604
+224
+61
+11
+1
+the data preparation cost 0.259153 seconds, the FPgrowth cost 1.062927 seconds
+[HOOKS] Total time spent in ROI: 1.321325s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 3136.82 seconds of wall clock time!
+Extracting input_simlarge.tar for swaptions...
+Running swaptions with simlarge configuration...
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 17 2026 20:22:41
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 457093
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/amd64-linux.gcc-hooks/bin/swaptions --binary-args '-ns 64 -sm 40000 -nt 1'
+
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/amd64-linux.gcc-hooks/bin/swaptions
+  binary_args: -ns 64 -sm 40000 -nt 1
+  isa: X86
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+Running the simulation
+Using O3 cpu
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/amd64-linux.gcc-hooks/bin/swaptions'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Number of Simulations: 40000,  Number of threads: 1 Number of swaptions: 64
+[HOOKS] Entering ROI
+warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigprocmask(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall madvise(...)
+warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
+[HOOKS] Leaving ROI
+Swaption 0: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 1: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 2: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 3: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 4: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 5: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 6: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 7: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 8: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 9: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 10: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 11: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 12: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 13: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 14: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 15: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 16: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 17: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 18: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 19: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 20: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 21: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 22: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 23: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 24: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 25: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 26: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 27: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 28: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 29: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 30: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 31: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 32: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 33: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 34: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 35: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 36: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 37: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 38: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 39: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 40: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 41: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 42: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 43: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 44: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 45: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 46: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 47: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 48: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 49: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 50: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 51: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 52: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 53: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 54: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 55: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 56: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 57: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 58: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 59: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 60: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 61: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 62: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+Swaption 63: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
+[HOOKS] Total time spent in ROI: 0.000116s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 49.58 seconds of wall clock time!
