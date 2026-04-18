@@ -6,9 +6,7 @@ import m5
 from m5.objects.FuncUnitConfig import *
 
 from gem5.components.boards.simple_board import SimpleBoard
-from gem5.components.cachehierarchies.classic.private_l1_cache_hierarchy import (
-    PrivateL1CacheHierarchy,
-)
+from gem5.components.cachehierarchies.classic.no_cache import NoCache
 from gem5.components.memory.simple import SingleChannelSimpleMemory
 from gem5.components.processors.base_cpu_core import BaseCPUCore
 from gem5.components.processors.base_cpu_processor import BaseCPUProcessor
@@ -64,11 +62,11 @@ args = parse_args()
 # Print all parameters before running
 print("Parameters:")
 print(f"  binary-path: {args.binary_path}")
+print(f"  binary_args: {args.binary_args}")
 print(f"  isa: {args.isa}")
 print(f"  rob-size: {args.rob_size}")
 print(f"  lq-size: {args.lq_size}")
 print(f"  sq-size: {args.sq_size}")
-print(f"  binary_args: {args.binary_args}")
 
 # Map string to ISA enum
 isa_map = {
@@ -84,11 +82,8 @@ requires(isa_required=isa, kvm_required=True)
 # Setting up all the fixed system parameters here
 
 
-# Caches: Private L1 caches.
-cache_hierarchy = PrivateL1CacheHierarchy(
-    l1d_size="16KiB",
-    l1i_size="16KiB",
-)
+# Caches: None. We want to directly evaluate the performance of CXL-attached memory without the influence of caches.
+cache_hierarchy = NoCache()
 
 # Memory: Mimicking a CXL-attached memory with 250ns latency and 32 GiB/s bandwidth.
 
