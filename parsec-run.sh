@@ -8,7 +8,9 @@ declare -A exp_simsize=(
     [freqmine]="simdev"
 )
 
-for NAME in "${!exp_simsize[@]}"; do
+exp_order=("blackscholes" "swaptions" "freqmine") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
+
+for NAME in "${exp_order[@]}"; do
     simsize=${exp_simsize[$NAME]}
 
     export NTHREADS=1
