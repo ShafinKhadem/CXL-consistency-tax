@@ -79,7 +79,7 @@ isa_map = {
 isa = isa_map.get(args.isa.upper(), ISA.X86)
 
 # We check for the required gem5 build.
-requires(isa_required=isa, kvm_required=True)
+requires(isa_required=isa)
 
 # Setting up all the fixed system parameters here
 
