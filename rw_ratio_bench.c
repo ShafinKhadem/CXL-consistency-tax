@@ -17,6 +17,7 @@
 #include <string.h>
 #include <time.h>
 #include <stdint.h>
+#include <stdatomic.h>
 
 typedef struct
 {
@@ -76,6 +77,17 @@ int main(int argc, char **argv)
     size_t elements = 1u << 16; // 64K
     uint64_t ops = 100000ull;   // 100K ops
     uint64_t seed = 1;
+    enum
+    {
+        ORDER_RELEASE,
+        ORDER_RELAXED,
+        ORDER_SEQUENTIAL
+    } mem_order = ORDER_RELEASE; // Don't take this as input, otherwise the compiler might optimize away all atomics even in relaxed mode..
+
+    memory_order store_order = mem_order == ORDER_RELEASE ? memory_order_release : mem_order == ORDER_SEQUENTIAL ? memory_order_seq_cst
+                                                                                                                 : memory_order_relaxed;
+    memory_order load_order = mem_order == ORDER_RELEASE ? memory_order_acquire : mem_order == ORDER_SEQUENTIAL ? memory_order_seq_cst
+                                                                                                                : memory_order_relaxed;
 
     for (int i = 1; i < argc; ++i)
     {
@@ -133,11 +145,7 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
-    uint64_t *buf = (uint64_t *)mem;
-    for (size_t i = 0; i < elements; ++i)
-    {
-        buf[i] = (uint64_t)i ^ 0x9e3779b97f4a7c15ull;
-    }
+    atomic_uint_fast64_t *buf = (atomic_uint_fast64_t *)mem;
 
     rng_t rng = {.state = seed ? seed : 1ull};
 
@@ -157,13 +165,13 @@ int main(int argc, char **argv)
         if ((int)choice < write_ratio)
         {
             uint64_t v = xorshift64star(&rng);
-            buf[idx] = v;
+            atomic_store_explicit(&buf[idx], v, store_order);
             write_sum ^= v;
             ++write_ops;
         }
         else
         {
-            uint64_t v = buf[idx];
+            uint64_t v = atomic_load_explicit(&buf[idx], load_order);
             read_sum += v;
             ++read_ops;
         }
@@ -176,8 +184,9 @@ int main(int argc, char **argv)
     double write_mops = (double)write_ops / elapsed / 1e6;
     double total_mops = (double)(read_ops + write_ops) / elapsed / 1e6;
 
-    printf("elements=%zu ops=%" PRIu64 " write_ratio=%d seed=%" PRIu64 "\n",
-           elements, ops, write_ratio, seed);
+    printf("elements=%zu ops=%" PRIu64 " write_ratio=%d seed=%" PRIu64 " memory_order=%s\n",
+           elements, ops, write_ratio, seed, mem_order == ORDER_RELEASE ? "release" : mem_order == ORDER_SEQUENTIAL ? "sequential"
+                                                                                                                    : "relaxed");
     printf("elapsed=%.6f s\n", elapsed);
     printf("read_ops=%" PRIu64 " (%.3f Mop/s)\n", read_ops, read_mops);
     printf("write_ops=%" PRIu64 " (%.3f Mop/s)\n", write_ops, write_mops);
