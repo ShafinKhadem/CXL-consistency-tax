@@ -198,6 +198,14 @@ board = SimpleBoard(
 
 board.set_se_binary_workload(
     binary=BinaryResource(local_path=Path(args.binary_path).as_posix()),
+    env_list=(
+        [
+            # Set LD_LIBRARY_PATH for dynamic libraries
+            "LD_LIBRARY_PATH=/usr/aarch64-linux-gnu/lib:/lib/aarch64-linux-gnu:/lib64:/usr/lib/aarch64-linux-gnu",
+        ]
+        if isa == ISA.ARM
+        else []
+    ),
     arguments=args.binary_args.split() if args.binary_args else [],
 )
 
