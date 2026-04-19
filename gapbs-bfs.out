@@ -1,0 +1,71 @@
+ARM:
+
+./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-id arm-gapbs-bfs --isa ARM --binary-args "-n5 -f/media/shafin/secondary/gem5-resources/src/gapbs/gapbs-with-roi-annotations/gapbs/graph.sg"
+
+Read Time:           0.00017
+Graph has 32768 nodes and 441438 undirected edges for degree: 13
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+Trial Time:          0.00193
+Trial Time:          0.00178
+Trial Time:          0.00182
+Trial Time:          0.00173
+Trial Time:          0.00158
+Average Time:        0.00177
+
+Enforcing precise store exception:
+
+./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-id arm-gapbs-bfs --isa ARM --binary-args "-n5 -f/media/shafin/secondary/gem5-resources/src/gapbs/gapbs-with-roi-annotations/gapbs/graph.sg" --sq-size 1
+
+Read Time:           0.00020
+Graph has 32768 nodes and 441438 undirected edges for degree: 13
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+Trial Time:          0.00196
+Trial Time:          0.00183
+Trial Time:          0.00186
+Trial Time:          0.00178
+Trial Time:          0.00162
+Average Time:        0.00181
+
+
+
+X86:
+
+./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-id x86-gapbs-bfs --isa X86 --binary-args "-n5 -f/media/shafin/secondary/gem5-resources/src/gapbs/gapbs-with-roi-annotations/gapbs/graph.sg"
+
+Read Time:           0.00020
+Graph has 32768 nodes and 441438 undirected edges for degree: 13
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+Trial Time:          0.00206
+Trial Time:          0.00193
+Trial Time:          0.00198
+Trial Time:          0.00189
+Trial Time:          0.00174
+Average Time:        0.00192
+
+double LSQ:
+
+./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-id x86-gapbs-bfs --isa X86 --binary-args "-n5 -f/media/shafin/secondary/gem5-resources/src/gapbs/gapbs-with-roi-annotations/gapbs/graph.sg" --lq-size 64 --sq-size 64
+
+Read Time:           0.00020
+Graph has 32768 nodes and 441438 undirected edges for degree: 13
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+Trial Time:          0.00186
+Trial Time:          0.00175
+Trial Time:          0.00189
+Trial Time:          0.00177
+Trial Time:          0.00157
+Average Time:        0.00177
+
+Enforcing precise store exception:
+
+./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-id x86-gapbs-bfs --isa X86 --binary-args "-n5 -f/media/shafin/secondary/gem5-resources/src/gapbs/gapbs-with-roi-annotations/gapbs/graph.sg" --sq-size 1
+
+Read Time:           0.00020
+Graph has 32768 nodes and 441438 undirected edges for degree: 13
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+Trial Time:          0.00208
+Trial Time:          0.00194
+Trial Time:          0.00199
+Trial Time:          0.00191
+Trial Time:          0.00175
+Average Time:        0.00193
