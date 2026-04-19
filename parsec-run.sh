@@ -4,7 +4,7 @@ PARSEC_DIR="/home/shafin/repos/parsec-gem5"
 
 declare -A exp_simsize=(
     [blackscholes]="simdev"
-    [swaptions]="simlarge"
+    [swaptions]="simdev"
     [canneal]="simdev"
     [freqmine]="simdev"
     [fluidanimate]="test"
@@ -31,7 +31,7 @@ for NAME in "${exp_order[@]}"; do
     echo "Running $NAME with $simsize configuration..."
     arch=$(uname -m)
     if [ "$arch" == "x86_64" ]; then
-        ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path $exppkgdir/inst/amd64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}"
+        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa X86 --binary-path $exppkgdir/inst/amd64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}"
     elif [ "$arch" == "aarch64" ]; then
         ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}"
     else

@@ -17,26 +17,34 @@ gem5 is copyrighted software; use the --copyright option for details.
 
 gem5 version 25.1.0.0
 gem5 compiled Apr  9 2026 07:51:36
-gem5 started Apr 18 2026 15:24:06
-gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 966984
-command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/amd64-linux.gcc-hooks/bin/blackscholes --binary-args '1 in_16.txt prices.txt'
+gem5 started Apr 18 2026 19:41:38
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1385143
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/aarch64-linux.gcc-hooks/bin/blackscholes --binary-args '1 in_16.txt prices.txt'
 
 info: Standard input is not a terminal, disabling listeners.
 Parameters:
-  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/amd64-linux.gcc-hooks/bin/blackscholes
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/aarch64-linux.gcc-hooks/bin/blackscholes
   binary_args: 1 in_16.txt prices.txt
-  isa: X86
+  isa: ARM
   rob-size: 512
   lq-size: 32
   sq-size: 32
 Running the simulation
 Using O3 cpu
-src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
-      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/amd64-linux.gcc-hooks/bin/blackscholes'
 src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffe0d2bc=>0x3fffe0d2c0).(0=>1)
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 [HOOKS] PARSEC Hooks Version 1.2
 Num of Options: 16
@@ -44,17 +52,12 @@ Num of Runs: 100
 Size of data: 640
 [HOOKS] Entering ROI
 warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
-src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigaction(...)
-      (further warnings will be suppressed)
-src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigprocmask(...)
-      (further warnings will be suppressed)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall madvise(...)
 warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
 [HOOKS] Leaving ROI
-[HOOKS] Total time spent in ROI: 0.000032s
+[HOOKS] Total time spent in ROI: 0.000282s
 [HOOKS] Terminating
 All simulation events were successful.
-Done with the simulation after 3.06 seconds of wall clock time!
+Done with the simulation after 7.10 seconds of wall clock time!
 Extracting input_simdev.tar for swaptions...
 Running swaptions with simdev configuration...
 Global frequency set at 1000000000000 ticks per second
@@ -74,65 +77,54 @@ gem5 is copyrighted software; use the --copyright option for details.
 
 gem5 version 25.1.0.0
 gem5 compiled Apr  9 2026 07:51:36
-gem5 started Apr 18 2026 19:53:43
-gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1393068
-command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa X86 --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/amd64-linux.gcc-hooks/bin/swaptions --binary-args '-ns 3 -sm 50 -nt 1'
+gem5 started Apr 18 2026 19:41:46
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1385330
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/aarch64-linux.gcc-hooks/bin/swaptions --binary-args '-ns 3 -sm 50 -nt 1'
 
 info: Standard input is not a terminal, disabling listeners.
 Parameters:
-  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/amd64-linux.gcc-hooks/bin/swaptions
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/aarch64-linux.gcc-hooks/bin/swaptions
   binary_args: -ns 3 -sm 50 -nt 1
-  isa: X86
+  isa: ARM
   rob-size: 512
   lq-size: 32
   sq-size: 32
 Running the simulation
 Using O3 cpu
-src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
-      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/amd64-linux.gcc-hooks/bin/swaptions'
 src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 [HOOKS] PARSEC Hooks Version 1.2
 Number of Simulations: 50,  Number of threads: 1 Number of swaptions: 3
 [HOOKS] Entering ROI
 warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
-src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigaction(...)
-      (further warnings will be suppressed)
-src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigprocmask(...)
-      (further warnings will be suppressed)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall madvise(...)
 warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
 [HOOKS] Leaving ROI
-Swaption 0: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
-Swaption 1: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
-Swaption 2: [SwaptionPrice: 0.0000000000 StdError: 0.0000000000] 
-[HOOKS] Total time spent in ROI: 0.000029s
+Swaption 0: [SwaptionPrice: 8.8649313928 StdError: nan] 
+Swaption 1: [SwaptionPrice: 4.1659773323 StdError: nan] 
+Swaption 2: [SwaptionPrice: 1.0985943354 StdError: nan] 
+[HOOKS] Total time spent in ROI: 0.001395s
 [HOOKS] Terminating
 All simulation events were successful.
-Done with the simulation after 4.53 seconds of wall clock time!
+Done with the simulation after 29.83 seconds of wall clock time!
 Extracting input_simdev.tar for canneal...
 Running canneal with simdev configuration...
-gem5 Simulator System.  https://www.gem5.org
-gem5 is copyrighted software; use the --copyright option for details.
-
-gem5 version 25.1.0.0
-gem5 compiled Apr  9 2026 07:51:36
-gem5 started Apr 18 2026 17:40:22
-gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1267476
-command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/amd64-linux.gcc-hooks/bin/canneal --binary-args '1 100 300 100.nets 2'
-
-Parameters:
-  binary-path: /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/amd64-linux.gcc-hooks/bin/canneal
-  binary_args: 1 100 300 100.nets 2
-  isa: X86
-  rob-size: 512
-  lq-size: 32
-  sq-size: 32
-Running the simulation
-Using O3 cpu
 Global frequency set at 1000000000000 ticks per second
 warn: rounding error > tolerance
     29.103830 rounded to 29
@@ -144,13 +136,44 @@ warn: rounding error > tolerance
 src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
 src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
 src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
-board.remote_gdb: Listening for connections on port 7000
-src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 19:42:17
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1385589
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/aarch64-linux.gcc-hooks/bin/canneal --binary-args '1 100 300 100.nets 2'
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/aarch64-linux.gcc-hooks/bin/canneal
+  binary_args: 1 100 300 100.nets 2
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
-      Returning '/home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/amd64-linux.gcc-hooks/bin/canneal'
 src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 [HOOKS] PARSEC Hooks Version 1.2
 Threadcount: 1
@@ -166,10 +189,10 @@ warn: No behavior was set by the user for work begin. Default behavior is resett
 warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
 [HOOKS] Leaving ROI
 Final routing is: 4365
-[HOOKS] Total time spent in ROI: 0.000297s
+[HOOKS] Total time spent in ROI: 0.000274s
 [HOOKS] Terminating
 All simulation events were successful.
-Done with the simulation after 21.66 seconds of wall clock time!
+Done with the simulation after 47.72 seconds of wall clock time!
 Extracting input_simdev.tar for freqmine...
 Running freqmine with simdev configuration...
 Global frequency set at 1000000000000 ticks per second
@@ -189,69 +212,85 @@ gem5 is copyrighted software; use the --copyright option for details.
 
 gem5 version 25.1.0.0
 gem5 compiled Apr  9 2026 07:51:36
-gem5 started Apr 18 2026 15:24:18
-gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 967215
-command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/amd64-linux.gcc-hooks/bin/freqmine --binary-args 'T10I4D100K_1k.dat 3'
+gem5 started Apr 18 2026 19:43:05
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1386055
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/aarch64-linux.gcc-hooks/bin/freqmine --binary-args 'T10I4D100K_1k.dat 3'
 
 info: Standard input is not a terminal, disabling listeners.
 Parameters:
-  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/amd64-linux.gcc-hooks/bin/freqmine
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/aarch64-linux.gcc-hooks/bin/freqmine
   binary_args: T10I4D100K_1k.dat 3
-  isa: X86
+  isa: ARM
   rob-size: 512
   lq-size: 32
   sq-size: 32
 Running the simulation
 Using O3 cpu
-src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
-      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/freqmine/inst/amd64-linux.gcc-hooks/bin/freqmine'
 src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffb8d2bc=>0x3fffb8d2c0).(0=>1)
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 [HOOKS] PARSEC Hooks Version 1.2
 [HOOKS] Entering ROI
 warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
-transaction number is 1000
-src/sim/syscall_emul.cc:86: warn: ignoring syscall sched_setaffinity(...)
-warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
-[HOOKS] Leaving ROI
-679
-3640
-2765
-2117
-1269
-604
-224
-61
-11
-1
-the data preparation cost 0.003149 seconds, the FPgrowth cost 0.013973 seconds
-[HOOKS] Total time spent in ROI: 0.017067s
-[HOOKS] Terminating
-All simulation events were successful.
-Done with the simulation after 187.86 seconds of wall clock time!
+src/sim/syscall_emul.cc:97: warn: ignoring syscall sched_setaffinity(...)
+      (further warnings will be suppressed)
+gem5.opt: src/cpu/timebuf.hh:54: void gem5::TimeBuffer<T>::valid(int) const [with T = gem5::o3::IEWStruct]: Assertion `idx >= -past && idx <= future' failed.
+Program aborted at tick 6172798702
+--- BEGIN LIBC BACKTRACE ---
+./gem5/build/ALL/gem5.opt(_ZN4gem515print_backtraceEv+0x2b) [0x63b9ee7fad7b]
+./gem5/build/ALL/gem5.opt(_ZN4gem512abortHandlerEi+0x4c) [0x63b9ee82360c]
+/lib/x86_64-linux-gnu/libc.so.6(+0x45f60) [0x73a877645f60]
+/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x11d) [0x73a8776a5fed]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0x1e) [0x73a877645e2e]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x27) [0x73a877628888]
+/lib/x86_64-linux-gnu/libc.so.6(__assert_perror_fail+0x0) [0x73a8776287f0]
+./gem5/build/ALL/gem5.opt(+0x2156fa9) [0x63b9e964ffa9]
+./gem5/build/ALL/gem5.opt(_ZN4gem52o37LSQUnit9writebackERKNS_14RefCountingPtrINS0_7DynInstEEEPNS_6PacketE+0x15b) [0x63b9ead94d8b]
+./gem5/build/ALL/gem5.opt(_ZN4gem52o37LSQUnit18completeDataAccessEPNS_6PacketE+0x173) [0x63b9ead96923]
+./gem5/build/ALL/gem5.opt(_ZN4gem52o33LSQ17SingleDataRequest14recvTimingRespEPNS_6PacketE+0x32) [0x63b9ead806b2]
+./gem5/build/ALL/gem5.opt(_ZN4gem52o33LSQ14recvTimingRespEPNS_6PacketE+0xb4) [0x63b9ead84f54]
+./gem5/build/ALL/gem5.opt(_ZN4gem515RespPacketQueue10sendTimingEPNS_6PacketE+0x36) [0x63b9ed905286]
+./gem5/build/ALL/gem5.opt(_ZN4gem511PacketQueue18sendDeferredPacketEv+0x6f) [0x63b9ed9078af]
+./gem5/build/ALL/gem5.opt(_ZN4gem510EventQueue10serviceOneEv+0xb5) [0x63b9ee812cc5]
+./gem5/build/ALL/gem5.opt(_ZN4gem59doSimLoopEPNS_10EventQueueE+0x68) [0x63b9ee842698]
+./gem5/build/ALL/gem5.opt(_ZN4gem58simulateEm+0x26b) [0x63b9ee842d8b]
+./gem5/build/ALL/gem5.opt(+0x763ffdf) [0x63b9eeb38fdf]
+./gem5/build/ALL/gem5.opt(+0x2b1f509) [0x63b9ea018509]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(+0x176875) [0x73a878976875]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(PyObject_Call+0x69) [0x73a87891b5f9]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(_PyEval_EvalFrameDefault+0x8e4) [0x73a878a5db24]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(PyEval_EvalCode+0xd9) [0x73a878a5d159]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(+0x256f29) [0x73a878a56f29]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(+0x175c18) [0x73a878975c18]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(PyObject_Vectorcall+0x5e) [0x73a87891957e]
+/lib/x86_64-linux-gnu/libpython3.13.so.1.0(_PyEval_EvalFrameDefault+0xf69) [0x73a878a5e1a9]
+./gem5/build/ALL/gem5.opt(+0x7330536) [0x63b9ee829536]
+./gem5/build/ALL/gem5.opt(main+0x217) [0x63b9e9ffb5e7]
+/lib/x86_64-linux-gnu/libc.so.6(+0x2a575) [0x73a87762a575]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x88) [0x73a87762a628]
+./gem5/build/ALL/gem5.opt(_start+0x25) [0x63b9ea004805]
+--- END LIBC BACKTRACE ---
+For more info on how to address this issue, please visit https://www.gem5.org/documentation/general_docs/common-errors/ 
+
+parsec-run.sh: line 16: 1386055 Aborted                 (core dumped) ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}"
 Extracting input_test.tar for fluidanimate...
 Running fluidanimate with test configuration...
-gem5 Simulator System.  https://www.gem5.org
-gem5 is copyrighted software; use the --copyright option for details.
-
-gem5 version 25.1.0.0
-gem5 compiled Apr  9 2026 07:51:36
-gem5 started Apr 18 2026 17:40:45
-gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1267796
-command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/amd64-linux.gcc-hooks/bin/fluidanimate --binary-args '1 1 in_5K.fluid out.fluid'
-
-Parameters:
-  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/amd64-linux.gcc-hooks/bin/fluidanimate
-  binary_args: 1 1 in_5K.fluid out.fluid
-  isa: X86
-  rob-size: 512
-  lq-size: 32
-  sq-size: 32
-Running the simulation
-Using O3 cpu
 Global frequency set at 1000000000000 ticks per second
 warn: rounding error > tolerance
     29.103830 rounded to 29
@@ -263,53 +302,60 @@ warn: rounding error > tolerance
 src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
 src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
 src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
-board.remote_gdb: Listening for connections on port 7000
-src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 19:44:04
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1386745
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/aarch64-linux.gcc-hooks/bin/fluidanimate --binary-args '1 1 in_5K.fluid out.fluid'
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/aarch64-linux.gcc-hooks/bin/fluidanimate
+  binary_args: 1 1 in_5K.fluid out.fluid
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
-      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/amd64-linux.gcc-hooks/bin/fluidanimate'
 src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 [HOOKS] PARSEC Hooks Version 1.2
 Loading file "in_5K.fluid"...
 Number of cells: 4725
-Grids steps over x, y, z: 0.00866667 0.00857143 0.00866667
 Number of particles: 4800
 [HOOKS] Entering ROI
 warn: No behavior was set by the user for work begin. Default behavior is resetting the stats and continuing.
-src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigaction(...)
-      (further warnings will be suppressed)
-src/sim/syscall_emul.cc:97: warn: ignoring syscall rt_sigprocmask(...)
-      (further warnings will be suppressed)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall madvise(...)
 warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
 [HOOKS] Leaving ROI
 Saving file "out.fluid"...
-[HOOKS] Total time spent in ROI: 0.000035s
+[HOOKS] Total time spent in ROI: 0.030377s
 [HOOKS] Terminating
 All simulation events were successful.
-Done with the simulation after 192.94 seconds of wall clock time!
+Done with the simulation after 786.98 seconds of wall clock time!
 Extracting input_test.tar for ferret...
 Running ferret with test configuration...
-gem5 Simulator System.  https://www.gem5.org
-gem5 is copyrighted software; use the --copyright option for details.
-
-gem5 version 25.1.0.0
-gem5 compiled Apr  9 2026 07:51:36
-gem5 started Apr 18 2026 17:30:06
-gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1257655
-command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/amd64-linux.gcc-hooks/bin/ferret --binary-args 'corel lsh queries 5 5 1 output.txt'
-
-Parameters:
-  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/amd64-linux.gcc-hooks/bin/ferret
-  binary_args: corel lsh queries 5 5 1 output.txt
-  isa: X86
-  rob-size: 512
-  lq-size: 32
-  sq-size: 32
-Running the simulation
-Using O3 cpu
 Global frequency set at 1000000000000 ticks per second
 warn: rounding error > tolerance
     29.103830 rounded to 29
@@ -321,17 +367,37 @@ warn: rounding error > tolerance
 src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
 src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
 src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
-board.remote_gdb: Listening for connections on port 7000
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 19:57:12
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1395879
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret --binary-args 'corel lsh queries 5 5 1 output.txt'
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret
+  binary_args: corel lsh queries 5 5 1 output.txt
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+Running the simulation
+Using O3 cpu
 src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
-src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
 src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
-      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/amd64-linux.gcc-hooks/bin/ferret'
+      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret'
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
 src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 [HOOKS] PARSEC Hooks Version 1.2
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
-src/sim/syscall_emul.hh:1504: warn: newfstatat: Flag bits 0x100 not supported.
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
 [HOOKS] Entering ROI
@@ -491,8 +557,8 @@ src/sim/mem_state.cc:443: info: Increasing stack size by one page.
 src/sim/mem_state.cc:443: info: Increasing stack size by one page.
 warn: No behavior was set by the user for work end. Default behavior is dumping the stats and continuing.
 [HOOKS] Leaving ROI
-QUERY TIME: 0.023 seconds
-[HOOKS] Total time spent in ROI: 0.023073s
+QUERY TIME: 0.020 seconds
+[HOOKS] Total time spent in ROI: 0.019538s
 [HOOKS] Terminating
 All simulation events were successful.
-Done with the simulation after 274.52 seconds of wall clock time!
+Done with the simulation after 205.33 seconds of wall clock time!
