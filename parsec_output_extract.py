@@ -1,0 +1,28 @@
+import csv
+import re
+
+log_file = "parsec-x86.out"  # Change to your log filename
+csv_file = "parsec-x86.csv"
+
+with open(log_file, "r") as f:
+    lines = f.readlines()
+
+results = []
+current_exp = None
+
+for line in lines:
+    run_match = re.match(r"Running (\w+) with .*", line)
+    if run_match:
+        current_exp = run_match.group(1)
+    roi_match = re.match(r"\[HOOKS\] Total time spent in ROI:\s*([0-9.]+)s", line)
+    if roi_match and current_exp:
+        roi_time = roi_match.group(1)
+        results.append((current_exp, roi_time))
+        current_exp = None
+
+with open(csv_file, "w", newline="") as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(["Experiment", "ROI_Time(s)"])
+    writer.writerows(results)
+
+print(f"Extracted {len(results)} experiments to {csv_file}")
