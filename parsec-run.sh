@@ -5,10 +5,13 @@ PARSEC_DIR="/home/shafin/repos/parsec-gem5"
 declare -A exp_simsize=(
     [blackscholes]="simdev"
     [swaptions]="simlarge"
+    [canneal]="simdev"
     [freqmine]="simdev"
+    [fluidanimate]="test"
+    [ferret]="test"
 )
 
-exp_order=("blackscholes" "swaptions" "freqmine") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
+exp_order=("blackscholes" "swaptions" "canneal" "freqmine" "fluidanimate" "ferret") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
 
 for NAME in "${exp_order[@]}"; do
     simsize=${exp_simsize[$NAME]}
