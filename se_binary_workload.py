@@ -13,7 +13,7 @@ from gem5.components.memory.simple import SingleChannelSimpleMemory
 from gem5.components.processors.base_cpu_core import BaseCPUCore
 from gem5.components.processors.base_cpu_processor import BaseCPUProcessor
 from gem5.isas import ISA
-from gem5.resources.resource import BinaryResource
+from gem5.resources.resource import BinaryResource, obtain_resource
 from gem5.simulate.simulator import Simulator
 from gem5.utils.requires import requires
 
@@ -22,8 +22,9 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description="Gem5 SE (syscall emulation) binary workload Runner",
     )
+    parser.add_argument("--binary-path", type=str, help="Path to the binary to run")
     parser.add_argument(
-        "--binary-path", type=str, required=True, help="Path to the binary to run"
+        "--binary-id", type=str, help="Resource ID of the binary to run"
     )
     parser.add_argument(
         "--binary-args",
@@ -55,6 +56,12 @@ def parse_args():
         default=32,
         help="Number of entries in the store queue (SQ)",
     )
+    parser.add_argument(
+        "--num-cores",
+        type=int,
+        default=2,
+        help="Number of CPU cores to instantiate",
+    )
     return parser.parse_args()
 
 
@@ -64,11 +71,17 @@ args = parse_args()
 # Print all parameters before running
 print("Parameters:")
 print(f"  binary-path: {args.binary_path}")
+print(f"  binary-id: {args.binary_id}")
 print(f"  binary_args: {args.binary_args}")
 print(f"  isa: {args.isa}")
 print(f"  rob-size: {args.rob_size}")
 print(f"  lq-size: {args.lq_size}")
 print(f"  sq-size: {args.sq_size}")
+print(f"  num-cores: {args.num_cores}")
+
+# If both binary-path and binary-id are not provided, we cannot run the simulation.
+if not args.binary_path and not args.binary_id:
+    raise ValueError("Either --binary-path or --binary-id must be provided.")
 
 # Map string to ISA enum
 isa_map = {
@@ -169,15 +182,18 @@ class O3CPUStdCore(BaseCPUCore):
 
 
 class O3CPU(BaseCPUProcessor):
-    def __init__(self, width, rob_size, lq_size, sq_size):
+    def __init__(self, width, rob_size, lq_size, sq_size, num_cores):
         """
         :param width: sets the width of fetch, decode, raname, issue, wb, and
         commit stages.
         :param rob_size: determine the number of entries in the reorder buffer.
         :param lq_size: determines the size of the load queue.
         :param sq_size: determines the size of the store queue.
+        :param num_cores: determines the number of cores in the processor.
         """
-        cores = [O3CPUStdCore(width, rob_size, lq_size, sq_size)]
+        cores = [
+            O3CPUStdCore(width, rob_size, lq_size, sq_size) for _ in range(num_cores)
+        ]
         super().__init__(cores)
 
 
@@ -186,6 +202,7 @@ processor = O3CPU(
     rob_size=args.rob_size,
     lq_size=args.lq_size,
     sq_size=args.sq_size,
+    num_cores=args.num_cores,
 )
 
 board = SimpleBoard(
@@ -197,7 +214,11 @@ board = SimpleBoard(
 
 
 board.set_se_binary_workload(
-    binary=BinaryResource(local_path=Path(args.binary_path).as_posix()),
+    binary=(
+        BinaryResource(local_path=Path(args.binary_path).as_posix())
+        if args.binary_path
+        else obtain_resource(resource_id=args.binary_id)
+    ),
     env_list=(
         [
             # Set LD_LIBRARY_PATH for dynamic libraries
