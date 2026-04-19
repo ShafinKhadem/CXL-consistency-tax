@@ -2473,3 +2473,498 @@ read_sum=0
 write_sum=13585527720886067007
 All simulation events were successful.
 Done with the simulation after 113.31 seconds of wall clock time!
+Running with ISA=ARM, SQ size=1, LQ size=128, write-ratio=50
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:09:53
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1306665
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-ARM --isa ARM --sq-size 1 --lq-size 128 --write-ratio 50
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-ARM
+  write-ratio: 50
+  isa: ARM
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-ARM'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x442bdc=>0x442be0).(0=>1)
+elements=1000000 ops=100000 write_ratio=50 seed=1 memory_order=release
+elapsed=0.019299 s
+read_ops=49841 (2.583 Mop/s)
+write_ops=50159 (2.599 Mop/s)
+total_ops=100000 (5.182 Mop/s)
+read_sum=15965012528706635466
+write_sum=15127924039229570755
+All simulation events were successful.
+Done with the simulation after 72.99 seconds of wall clock time!
+Running with ISA=X86, SQ size=1, LQ size=128, write-ratio=50
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:11:07
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1307851
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-X86 --isa X86 --sq-size 1 --lq-size 128 --write-ratio 50
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-X86
+  write-ratio: 50
+  isa: X86
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-X86'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+elements=1000000 ops=100000 write_ratio=50 seed=1 memory_order=release
+elapsed=0.014284 s
+read_ops=49841 (3.489 Mop/s)
+write_ops=50159 (3.512 Mop/s)
+total_ops=100000 (7.001 Mop/s)
+read_sum=15965012528706635466
+write_sum=15127924039229570755
+All simulation events were successful.
+Done with the simulation after 73.04 seconds of wall clock time!
+Running with ISA=ARM, SQ size=1, LQ size=128, write-ratio=25
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:12:21
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1308690
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-ARM --isa ARM --sq-size 1 --lq-size 128 --write-ratio 25
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-ARM
+  write-ratio: 25
+  isa: ARM
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-ARM'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x442bdc=>0x442be0).(0=>1)
+elements=1000000 ops=100000 write_ratio=25 seed=1 memory_order=release
+elapsed=0.021013 s
+read_ops=74821 (3.561 Mop/s)
+write_ops=25179 (1.198 Mop/s)
+total_ops=100000 (4.759 Mop/s)
+read_sum=1889682637469464043
+write_sum=13284600926069978378
+All simulation events were successful.
+Done with the simulation after 71.89 seconds of wall clock time!
+Running with ISA=X86, SQ size=1, LQ size=128, write-ratio=25
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:13:33
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1309612
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-X86 --isa X86 --sq-size 1 --lq-size 128 --write-ratio 25
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-X86
+  write-ratio: 25
+  isa: X86
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-X86'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+elements=1000000 ops=100000 write_ratio=25 seed=1 memory_order=release
+elapsed=0.012716 s
+read_ops=74821 (5.884 Mop/s)
+write_ops=25179 (1.980 Mop/s)
+total_ops=100000 (7.864 Mop/s)
+read_sum=1889682637469464043
+write_sum=13284600926069978378
+All simulation events were successful.
+Done with the simulation after 68.74 seconds of wall clock time!
+Running with ISA=ARM, SQ size=1, LQ size=128, write-ratio=75
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:14:43
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1310544
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-ARM --isa ARM --sq-size 1 --lq-size 128 --write-ratio 75
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-ARM
+  write-ratio: 75
+  isa: ARM
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-ARM'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x442bdc=>0x442be0).(0=>1)
+elements=1000000 ops=100000 write_ratio=75 seed=1 memory_order=release
+elapsed=0.021020 s
+read_ops=24945 (1.187 Mop/s)
+write_ops=75055 (3.571 Mop/s)
+total_ops=100000 (4.757 Mop/s)
+read_sum=7111431286016890487
+write_sum=17130558444781473672
+All simulation events were successful.
+Done with the simulation after 72.60 seconds of wall clock time!
+Running with ISA=X86, SQ size=1, LQ size=128, write-ratio=75
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:15:56
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1311634
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-X86 --isa X86 --sq-size 1 --lq-size 128 --write-ratio 75
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-X86
+  write-ratio: 75
+  isa: X86
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-X86'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+elements=1000000 ops=100000 write_ratio=75 seed=1 memory_order=release
+elapsed=0.019294 s
+read_ops=24945 (1.293 Mop/s)
+write_ops=75055 (3.890 Mop/s)
+total_ops=100000 (5.183 Mop/s)
+read_sum=7111431286016890487
+write_sum=17130558444781473672
+All simulation events were successful.
+Done with the simulation after 95.93 seconds of wall clock time!
+Running with ISA=ARM, SQ size=1, LQ size=128, write-ratio=0
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:17:33
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1313161
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-ARM --isa ARM --sq-size 1 --lq-size 128 --write-ratio 0
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-ARM
+  write-ratio: 0
+  isa: ARM
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-ARM'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x442bdc=>0x442be0).(0=>1)
+elements=1000000 ops=100000 write_ratio=0 seed=1 memory_order=release
+elapsed=0.025416 s
+read_ops=100000 (3.934 Mop/s)
+write_ops=0 (0.000 Mop/s)
+total_ops=100000 (3.934 Mop/s)
+read_sum=0
+write_sum=0
+All simulation events were successful.
+Done with the simulation after 83.17 seconds of wall clock time!
+Running with ISA=X86, SQ size=1, LQ size=128, write-ratio=0
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:18:57
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1314345
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-X86 --isa X86 --sq-size 1 --lq-size 128 --write-ratio 0
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-X86
+  write-ratio: 0
+  isa: X86
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-X86'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+elements=1000000 ops=100000 write_ratio=0 seed=1 memory_order=release
+elapsed=0.013291 s
+read_ops=100000 (7.524 Mop/s)
+write_ops=0 (0.000 Mop/s)
+total_ops=100000 (7.524 Mop/s)
+read_sum=0
+write_sum=0
+All simulation events were successful.
+Done with the simulation after 68.08 seconds of wall clock time!
+Running with ISA=ARM, SQ size=1, LQ size=128, write-ratio=100
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:20:06
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1315282
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-ARM --isa ARM --sq-size 1 --lq-size 128 --write-ratio 100
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-ARM
+  write-ratio: 100
+  isa: ARM
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-ARM'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x442bdc=>0x442be0).(0=>1)
+elements=1000000 ops=100000 write_ratio=100 seed=1 memory_order=release
+elapsed=0.025639 s
+read_ops=0 (0.000 Mop/s)
+write_ops=100000 (3.900 Mop/s)
+total_ops=100000 (3.900 Mop/s)
+read_sum=0
+write_sum=13585527720886067007
+All simulation events were successful.
+Done with the simulation after 84.57 seconds of wall clock time!
+Running with ISA=X86, SQ size=1, LQ size=128, write-ratio=100
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.0
+gem5 compiled Apr  9 2026 07:51:36
+gem5 started Apr 18 2026 18:21:32
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 1316522
+command line: ./gem5/build/ALL/gem5.opt rw_ratio_bench.py --binary-path rw_ratio_bench-X86 --isa X86 --sq-size 1 --lq-size 128 --write-ratio 100
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: rw_ratio_bench-X86
+  write-ratio: 100
+  isa: X86
+  rob-size: 512
+  lq-size: 128
+  sq-size: 1
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall rseq(...)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/media/shafin/secondary/CXL-consistency-tax/rw_ratio_bench-X86'
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+elements=1000000 ops=100000 write_ratio=100 seed=1 memory_order=release
+elapsed=0.025641 s
+read_ops=0 (0.000 Mop/s)
+write_ops=100000 (3.900 Mop/s)
+total_ops=100000 (3.900 Mop/s)
+read_sum=0
+write_sum=13585527720886067007
+All simulation events were successful.
+Done with the simulation after 107.80 seconds of wall clock time!

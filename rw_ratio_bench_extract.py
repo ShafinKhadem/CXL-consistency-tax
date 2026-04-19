@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 RUN_RE = re.compile(
-    r"Running with ISA=(?P<isa>\w+), SQ/LQ size=(?P<sq>\d+), write-ratio=(?P<wr>\d+)"
+    r"Running with ISA=(?P<isa>\w+), SQ size=(?P<sq>\d+), LQ size=(?P<lq>\d+), write-ratio=(?P<wr>\d+)"
 )
 TOTAL_RE = re.compile(r"total_ops=(?P<ops>\d+)\s+\((?P<mops>[0-9.]+)\s+Mop/s\)")
 
@@ -23,7 +23,7 @@ def parse_log(lines):
             current = {
                 "isa": m.group("isa"),
                 "sq_size": int(m.group("sq")),
-                "lq_size": int(m.group("sq")),  # in your logs SQ and LQ are the same
+                "lq_size": int(m.group("lq")),
                 "write_ratio": int(m.group("wr")),
             }
             continue
