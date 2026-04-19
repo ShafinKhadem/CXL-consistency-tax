@@ -1,5 +1,12 @@
 #!/bin/bash
 
+sudo apt install -y build-essential autotools-dev  automake m4 gettext \
+                    libx11-dev libxext-dev xorg-dev unzip texinfo \
+                    freeglut3-dev cmake debconf-utils build-essential \
+                    x11proto-xext-dev libglu1-mesa-dev libxi-dev \
+                    libxmu-dev libtbb-dev
+
+
 export GEM5_PATH="/users/nrkhadem/gem5"
 export TARGET_ISA=arm64
 export CFLAGS=-I"${GEM5_PATH}/include -static"
