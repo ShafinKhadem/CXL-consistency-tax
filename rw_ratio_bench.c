@@ -82,7 +82,7 @@ int main(int argc, char **argv)
         ORDER_RELEASE,
         ORDER_RELAXED,
         ORDER_SEQUENTIAL
-    } mem_order = ORDER_RELEASE; // Don't take this as input, otherwise the compiler might optimize away all atomics even in relaxed mode..
+    } mem_order = ORDER_RELAXED; // Don't take this as input, otherwise the compiler might optimize away all atomics even in relaxed mode..
 
     memory_order store_order = mem_order == ORDER_RELEASE ? memory_order_release : mem_order == ORDER_SEQUENTIAL ? memory_order_seq_cst
                                                                                                                  : memory_order_relaxed;

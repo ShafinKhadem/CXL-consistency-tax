@@ -11,7 +11,7 @@ declare -A exp_simsize=(
     [ferret]="test"
 )
 
-exp_order=("blackscholes" "swaptions" "canneal" "freqmine" "fluidanimate" "ferret") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
+exp_order=("blackscholes" "swaptions" "canneal" "fluidanimate" "ferret") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
 
 for NAME in "${exp_order[@]}"; do
     simsize=${exp_simsize[$NAME]}
@@ -29,11 +29,11 @@ for NAME in "${exp_order[@]}"; do
     fi
 
     echo "Running $NAME with $simsize configuration..."
-    arch=$(uname -m)
+    arch=$1
     if [ "$arch" == "x86_64" ]; then
-        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa X86 --binary-path $exppkgdir/inst/amd64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}"
+        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa X86 --binary-path $exppkgdir/inst/amd64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}" --num-cores=1
     elif [ "$arch" == "aarch64" ]; then
-        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}"
+        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}" --num-cores=1
     else
         echo "Unsupported architecture: $arch"
         exit 1

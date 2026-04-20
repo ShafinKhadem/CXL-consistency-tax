@@ -1,0 +1,19 @@
+ARM:
+
+elements=1000000 ops=100000 write_ratio=50 seed=1 memory_order=relaxed
+elapsed=0.010606 s
+read_ops=49841 (4.699 Mop/s)
+write_ops=50159 (4.729 Mop/s)
+total_ops=100000 (9.429 Mop/s)
+read_sum=15965012528706635466
+write_sum=15127924039229570755
+
+X86:
+
+elements=1000000 ops=100000 write_ratio=50 seed=1 memory_order=relaxed
+elapsed=0.015671 s
+read_ops=49841 (3.181 Mop/s)
+write_ops=50159 (3.201 Mop/s)
+total_ops=100000 (6.381 Mop/s)
+read_sum=15965012528706635466
+write_sum=15127924039229570755
