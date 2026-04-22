@@ -62,6 +62,11 @@ def parse_args():
         default=2,
         help="Number of CPU cores to instantiate",
     )
+    parser.add_argument(
+        "--needs-tso",
+        action="store_true",
+        help="Whether the benchmark needs TSO memory model",
+    )
     return parser.parse_args()
 
 
@@ -78,6 +83,7 @@ print(f"  rob-size: {args.rob_size}")
 print(f"  lq-size: {args.lq_size}")
 print(f"  sq-size: {args.sq_size}")
 print(f"  num-cores: {args.num_cores}")
+print(f"  needs-tso: {args.needs_tso}")
 
 # If both binary-path and binary-id are not provided, we cannot run the simulation.
 if not args.binary_path and not args.binary_id:
@@ -153,6 +159,8 @@ class O3CPUCore(BaseO3CPU):
 
         self.numPhysIntRegs = 256
         self.numPhysFloatRegs = 256
+
+        self.needsTSO = args.needs_tso
 
 
 # Along with BaseCPUCore, CPUStdCore wraps CPUCore to a core compatible

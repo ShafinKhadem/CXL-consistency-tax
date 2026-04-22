@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 RUN_RE = re.compile(
-    r"Running with ISA=(?P<isa>\w+), SQ size=(?P<sq>\d+), LQ size=(?P<lq>\d+), write-ratio=(?P<wr>\d+)"
+    r"Running with ISA=(?P<isa>\w+), SQ size=(?P<sq>\d+), LQ size=(?P<lq>\d+), write-ratio=(?P<wr>\d+), TSO=(?P<tso>\w+)"
 )
 TOTAL_RE = re.compile(r"total_ops=(?P<ops>\d+)\s+\((?P<mops>[0-9.]+)\s+Mop/s\)")
 
@@ -25,6 +25,7 @@ def parse_log(lines):
                 "sq_size": int(m.group("sq")),
                 "lq_size": int(m.group("lq")),
                 "write_ratio": int(m.group("wr")),
+                "TSO": m.group("tso") == "true",
             }
             continue
 
@@ -55,7 +56,14 @@ def main():
 
     writer = csv.DictWriter(
         sys.stdout,
-        fieldnames=["isa", "sq_size", "lq_size", "write_ratio", "total_mops_per_s"],
+        fieldnames=[
+            "isa",
+            "sq_size",
+            "lq_size",
+            "write_ratio",
+            "total_mops_per_s",
+            "TSO",
+        ],
     )
     writer.writeheader()
     writer.writerows(rows)

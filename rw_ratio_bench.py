@@ -54,6 +54,11 @@ def parse_args():
         default=32,
         help="Number of entries in the store queue (SQ)",
     )
+    parser.add_argument(
+        "--needs-tso",
+        action="store_true",
+        help="Whether the benchmark needs TSO memory model",
+    )
     return parser.parse_args()
 
 
@@ -67,6 +72,7 @@ print(f"  isa: {args.isa}")
 print(f"  rob-size: {args.rob_size}")
 print(f"  lq-size: {args.lq_size}")
 print(f"  sq-size: {args.sq_size}")
+print(f"  needs-tso: {args.needs_tso}")
 
 # Map string to ISA enum
 isa_map = {
@@ -138,6 +144,8 @@ class O3CPUCore(BaseO3CPU):
 
         self.numPhysIntRegs = 256
         self.numPhysFloatRegs = 256
+
+        self.needsTSO = args.needs_tso
 
 
 # Along with BaseCPUCore, CPUStdCore wraps CPUCore to a core compatible

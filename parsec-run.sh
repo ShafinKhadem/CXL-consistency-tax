@@ -9,16 +9,24 @@ declare -A exp_simsize=(
     [freqmine]="simdev"
     [fluidanimate]="test"
     [ferret]="test"
+    [splash2x.fft]="simdev"
 )
 
-exp_order=("blackscholes" "swaptions" "canneal" "fluidanimate" "ferret") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
+exp_order=("blackscholes" "swaptions" "canneal" "fluidanimate" "ferret" "splash2x.fft") # bash doesn't preserve order of map keys, so we define an array to specify the order of experiments
 
 for NAME in "${exp_order[@]}"; do
     simsize=${exp_simsize[$NAME]}
 
     export NTHREADS=1
-    source $PARSEC_DIR/config/packages/parsec.$NAME.pkgconf
-    exppkgdir="$PARSEC_DIR/pkgs/${pkg_group}/$NAME"
+
+    if [[ $NAME == splash2x.* ]]; then
+        NAME="${NAME#splash2x.}"
+        source $PARSEC_DIR/config/packages/splash2x.$NAME.pkgconf
+        exppkgdir="$PARSEC_DIR/ext/splash2x/${pkg_group}/$NAME"
+    else
+        source $PARSEC_DIR/config/packages/parsec.$NAME.pkgconf
+        exppkgdir="$PARSEC_DIR/pkgs/${pkg_group}/$NAME"
+    fi
     source $exppkgdir/parsec/$simsize.runconf
 
     echo "Extracting input_$simsize.tar for $NAME..."
@@ -29,13 +37,7 @@ for NAME in "${exp_order[@]}"; do
     fi
 
     echo "Running $NAME with $simsize configuration..."
-    arch=$1
-    if [ "$arch" == "x86_64" ]; then
-        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa X86 --binary-path $exppkgdir/inst/amd64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}" --num-cores=1
-    elif [ "$arch" == "aarch64" ]; then
-        ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}" --num-cores=1
-    else
-        echo "Unsupported architecture: $arch"
-        exit 1
-    fi
+    
+    ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}" --num-cores=1
+    ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path $exppkgdir/inst/aarch64-linux.gcc-hooks/bin/$NAME --binary-args "${run_args}" --num-cores=1 --needs-tso
 done
