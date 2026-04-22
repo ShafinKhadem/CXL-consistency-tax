@@ -48,11 +48,10 @@ static inline uint64_t now_ns(void)
 static void usage(const char *prog)
 {
     fprintf(stderr,
-            "Usage: %s [--write-ratio PCT] [--elements N] [--ops N] [--seed SEED]\n"
+            "Usage: %s [--write-ratio PCT] [--ops N] [--seed SEED]\n"
             "\n"
             "Defaults:\n"
             "  --write-ratio 50\n"
-            "  --elements 65536   (64K 64-bit elements)\n"
             "  --ops 100000       (100K operations)\n"
             "  --seed 1\n",
             prog);
@@ -74,7 +73,7 @@ static long parse_long(const char *s, const char *name)
 int main(int argc, char **argv)
 {
     int write_ratio = 50;       // percent, 0..100
-    size_t elements = 1u << 16; // 64K
+    size_t elements = 1u << 20; // MUST BE POWER OF 2 for fast modulo
     uint64_t ops = 100000ull;   // 100K ops
     uint64_t seed = 1;
     enum
@@ -94,10 +93,6 @@ int main(int argc, char **argv)
         if (strcmp(argv[i], "--write-ratio") == 0 && i + 1 < argc)
         {
             write_ratio = (int)parse_long(argv[++i], "write-ratio");
-        }
-        else if (strcmp(argv[i], "--elements") == 0 && i + 1 < argc)
-        {
-            elements = (size_t)parse_long(argv[++i], "elements");
         }
         else if (strcmp(argv[i], "--ops") == 0 && i + 1 < argc)
         {
@@ -124,11 +119,6 @@ int main(int argc, char **argv)
         fprintf(stderr, "--write-ratio must be in [0, 100]\n");
         return EXIT_FAILURE;
     }
-    if (elements < 1)
-    {
-        fprintf(stderr, "--elements must be at least 1\n");
-        return EXIT_FAILURE;
-    }
     if (ops < 1)
     {
         fprintf(stderr, "--ops must be positive\n");
@@ -151,28 +141,24 @@ int main(int argc, char **argv)
 
     uint64_t read_ops = 0;
     uint64_t write_ops = 0;
-    uint64_t read_sum = 0;
-    uint64_t write_sum = 0;
 
     uint64_t t0 = now_ns();
 
     for (uint64_t i = 0; i < ops; ++i)
     {
         uint64_t r = xorshift64star(&rng);
-        size_t idx = (size_t)(r % elements);
+        size_t idx = (size_t)(r & (elements - 1)); // elements is a power of 2, so this is equivalent to r % elements but faster
 
         uint64_t choice = xorshift64star(&rng) % 100ull;
         if ((int)choice < write_ratio)
         {
             uint64_t v = xorshift64star(&rng);
             atomic_store_explicit(&buf[idx], v, store_order);
-            write_sum ^= v;
             ++write_ops;
         }
         else
         {
-            uint64_t v = atomic_load_explicit(&buf[idx], load_order);
-            read_sum += v;
+            volatile uint64_t v = atomic_load_explicit(&buf[idx], load_order);
             ++read_ops;
         }
     }
@@ -191,8 +177,6 @@ int main(int argc, char **argv)
     printf("read_ops=%" PRIu64 " (%.3f Mop/s)\n", read_ops, read_mops);
     printf("write_ops=%" PRIu64 " (%.3f Mop/s)\n", write_ops, write_mops);
     printf("total_ops=%" PRIu64 " (%.3f Mop/s)\n", read_ops + write_ops, total_mops);
-    printf("read_sum=%" PRIu64 "\n", read_sum);
-    printf("write_sum=%" PRIu64 "\n", write_sum);
 
     free(mem);
     return EXIT_SUCCESS;

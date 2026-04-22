@@ -196,7 +196,7 @@ board = SimpleBoard(
 
 board.set_se_binary_workload(
     binary=BinaryResource(local_path=Path(args.binary_path).as_posix()),
-    arguments=["--write-ratio", args.write_ratio, "--elements", 1000000],
+    arguments=["--write-ratio", args.write_ratio],
 )
 
 
