@@ -1,0 +1,13 @@
+Experiment,TSO,ROI_Time(s)
+blackscholes,False,0.000282
+blackscholes,True,0.000281
+swaptions,False,0.001397
+swaptions,True,0.002189
+canneal,False,0.000274
+canneal,True,0.000276
+fluidanimate,False,0.030398
+fluidanimate,True,0.031634
+ferret,False,0.019476
+ferret,True,0.020425
+fft,False,0.000364
+fft,True,0.000413

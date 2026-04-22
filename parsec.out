@@ -1,0 +1,1100 @@
+Extracting input_simdev.tar for blackscholes...
+Running blackscholes with simdev configuration...
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:21:37
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 505767
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/aarch64-linux.gcc-hooks/bin/blackscholes --binary-args '1 in_16.txt prices.txt' --num-cores=1
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/aarch64-linux.gcc-hooks/bin/blackscholes
+  binary-id: None
+  binary_args: 1 in_16.txt prices.txt
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: False
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffe0d2bc=>0x3fffe0d2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Num of Options: 16
+Num of Runs: 100
+Size of data: 640
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+[HOOKS] Total time spent in ROI: 0.000282s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 6.96 seconds of wall clock time!
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:21:45
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 505903
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/aarch64-linux.gcc-hooks/bin/blackscholes --binary-args '1 in_16.txt prices.txt' --num-cores=1 --needs-tso
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/blackscholes/inst/aarch64-linux.gcc-hooks/bin/blackscholes
+  binary-id: None
+  binary_args: 1 in_16.txt prices.txt
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: True
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffe0d2bc=>0x3fffe0d2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Num of Options: 16
+Num of Runs: 100
+Size of data: 640
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+[HOOKS] Total time spent in ROI: 0.000281s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 7.62 seconds of wall clock time!
+Extracting input_simdev.tar for swaptions...
+Running swaptions with simdev configuration...
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:21:54
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 506047
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/aarch64-linux.gcc-hooks/bin/swaptions --binary-args '-ns 3 -sm 50 -nt 1' --num-cores=1
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/aarch64-linux.gcc-hooks/bin/swaptions
+  binary-id: None
+  binary_args: -ns 3 -sm 50 -nt 1
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: False
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Number of Simulations: 50,  Number of threads: 1 Number of swaptions: 3
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+Swaption 0: [SwaptionPrice: 8.8649313928 StdError: nan] 
+Swaption 1: [SwaptionPrice: 4.1659773323 StdError: nan] 
+Swaption 2: [SwaptionPrice: 1.0985943354 StdError: nan] 
+[HOOKS] Total time spent in ROI: 0.001397s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 33.78 seconds of wall clock time!
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:22:28
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 506477
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/aarch64-linux.gcc-hooks/bin/swaptions --binary-args '-ns 3 -sm 50 -nt 1' --num-cores=1 --needs-tso
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/swaptions/inst/aarch64-linux.gcc-hooks/bin/swaptions
+  binary-id: None
+  binary_args: -ns 3 -sm 50 -nt 1
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: True
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Number of Simulations: 50,  Number of threads: 1 Number of swaptions: 3
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+Swaption 0: [SwaptionPrice: 8.8649313928 StdError: nan] 
+Swaption 1: [SwaptionPrice: 4.1659773323 StdError: nan] 
+Swaption 2: [SwaptionPrice: 1.0985943354 StdError: nan] 
+[HOOKS] Total time spent in ROI: 0.002189s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 40.41 seconds of wall clock time!
+Extracting input_simdev.tar for canneal...
+Running canneal with simdev configuration...
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:23:10
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 506981
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/aarch64-linux.gcc-hooks/bin/canneal --binary-args '1 100 300 100.nets 2' --num-cores=1
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/aarch64-linux.gcc-hooks/bin/canneal
+  binary-id: None
+  binary_args: 1 100 300 100.nets 2
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: False
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Threadcount: 1
+100 swaps per temperature step
+start temperature: 300
+netlist filename: 100.nets
+number of temperature steps: 2
+locs created
+locs assigned
+netlist created. 100 elements.
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+Final routing is: 4365
+[HOOKS] Total time spent in ROI: 0.000274s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 53.39 seconds of wall clock time!
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:24:04
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 507285
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/aarch64-linux.gcc-hooks/bin/canneal --binary-args '1 100 300 100.nets 2' --num-cores=1 --needs-tso
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/kernels/canneal/inst/aarch64-linux.gcc-hooks/bin/canneal
+  binary-id: None
+  binary_args: 1 100 300 100.nets 2
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: True
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Threadcount: 1
+100 swaps per temperature step
+start temperature: 300
+netlist filename: 100.nets
+number of temperature steps: 2
+locs created
+locs assigned
+netlist created. 100 elements.
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+Final routing is: 4365
+[HOOKS] Total time spent in ROI: 0.000276s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 54.53 seconds of wall clock time!
+Extracting input_test.tar for fluidanimate...
+Running fluidanimate with test configuration...
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:24:59
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 507614
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/aarch64-linux.gcc-hooks/bin/fluidanimate --binary-args '1 1 in_5K.fluid out.fluid' --num-cores=1
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/aarch64-linux.gcc-hooks/bin/fluidanimate
+  binary-id: None
+  binary_args: 1 1 in_5K.fluid out.fluid
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: False
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Loading file "in_5K.fluid"...
+Number of cells: 4725
+Number of particles: 4800
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+Saving file "out.fluid"...
+[HOOKS] Total time spent in ROI: 0.030398s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 850.47 seconds of wall clock time!
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 11:39:11
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 514074
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/aarch64-linux.gcc-hooks/bin/fluidanimate --binary-args '1 1 in_5K.fluid out.fluid' --num-cores=1 --needs-tso
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/fluidanimate/inst/aarch64-linux.gcc-hooks/bin/fluidanimate
+  binary-id: None
+  binary_args: 1 1 in_5K.fluid out.fluid
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: True
+Running the simulation
+Using O3 cpu
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'unallocated_hint' unimplemented
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+src/sim/syscall_emul.hh:816: warn: Unsupported ioctl call (return ENOTTY): ioctl(1, 0x802c542a, ...) @ (0x3fffabd2bc=>0x3fffabd2c0).(0=>1)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+Loading file "in_5K.fluid"...
+Number of cells: 4725
+Number of particles: 4800
+[HOOKS] Entering ROI
+[HOOKS] Leaving ROI
+Saving file "out.fluid"...
+[HOOKS] Total time spent in ROI: 0.031634s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 2039.52 seconds of wall clock time!
+Extracting input_test.tar for ferret...
+Running ferret with test configuration...
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 12:13:11
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 520888
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret --binary-args 'corel lsh queries 5 5 1 output.txt' --num-cores=1
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret
+  binary-id: None
+  binary_args: corel lsh queries 5 5 1 output.txt
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: False
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret'
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+[HOOKS] Entering ROI
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+[HOOKS] Leaving ROI
+QUERY TIME: 0.019 seconds
+[HOOKS] Total time spent in ROI: 0.019476s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 192.85 seconds of wall clock time!
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+src/base/remote_gdb.cc:418: warn: Sockets disabled, not accepting gdb connections
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 12:16:24
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 522089
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret --binary-args 'corel lsh queries 5 5 1 output.txt' --num-cores=1 --needs-tso
+
+info: Standard input is not a terminal, disabling listeners.
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret
+  binary-id: None
+  binary_args: corel lsh queries 5 5 1 output.txt
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: True
+Running the simulation
+Using O3 cpu
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/pkgs/apps/ferret/inst/aarch64-linux.gcc-hooks/bin/ferret'
+src/arch/arm/insts/pseudo.cc:174: warn: 	instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+PARSEC Benchmark Suite Version 3.0-beta-20150206
+[HOOKS] PARSEC Hooks Version 1.2
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+[HOOKS] Entering ROI
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+[HOOKS] Leaving ROI
+QUERY TIME: 0.020 seconds
+[HOOKS] Total time spent in ROI: 0.020425s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 200.40 seconds of wall clock time!
+Extracting input_simdev.tar for fft...
+Running fft with simdev configuration...
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 14:33:13
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 543372
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/ext/splash2x/kernels/fft/inst/aarch64-linux.gcc-hooks/bin/fft --binary-args '1 simdev' --num-cores=1
+
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/ext/splash2x/kernels/fft/inst/aarch64-linux.gcc-hooks/bin/fft
+  binary-id: None
+  binary_args: 1 simdev
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: False
+Running the simulation
+Using O3 cpu
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/ext/splash2x/kernels/fft/inst/aarch64-linux.gcc-hooks/bin/fft'
+src/arch/arm/insts/pseudo.cc:174: warn:         instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+[HOOKS] PARSEC Hooks Version 1.2
+
+FFT with Blocking Transpose
+   1024 Complex Doubles
+   1 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+[HOOKS] Entering ROI
+iter_num = 32
+Transpose: iter_num = 0
+Step 1:       25
+FFt1DOnce: iter_num = 80
+Step 2:      132
+Transpose: iter_num = 0
+Step 3:       25
+Step 4:      101
+Transpose: iter_num = 0
+Step 5:       24
+[HOOKS] Leaving ROI
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0               324             74       0.22840
+
+                 TIMING INFORMATION
+Start time                        : 1000000000000090
+Initialization finish time        : 1000000000000278
+Overall finish time               : 1000000000000602
+Total time with initialization    :              512
+Total time without initialization :              324
+Overall transpose time            :               74
+Overall transpose fraction        :          0.22840
+
+[HOOKS] Total time spent in ROI: 0.000364s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 9.29 seconds of wall clock time!
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.1.0.1
+gem5 compiled Apr 22 2026 03:09:57
+gem5 started Apr 22 2026 14:33:23
+gem5 executing on shafin-HP-Laptop-14s-fq1786, pid 543582
+command line: ./gem5/build/ALL/gem5.opt se_binary_workload.py --isa ARM --binary-path /home/shafin/repos/parsec-gem5/ext/splash2x/kernels/fft/inst/aarch64-linux.gcc-hooks/bin/fft --binary-args '1 simdev' --num-cores=1 --needs-tso
+
+Parameters:
+  binary-path: /home/shafin/repos/parsec-gem5/ext/splash2x/kernels/fft/inst/aarch64-linux.gcc-hooks/bin/fft
+  binary-id: None
+  binary_args: 1 simdev
+  isa: ARM
+  rob-size: 512
+  lq-size: 32
+  sq-size: 32
+  num-cores: 1
+  needs-tso: True
+Running the simulation
+Using O3 cpu
+Global frequency set at 1000000000000 ticks per second
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+warn: No dot file generated. Please install pydot to generate the dot file and pdf.
+warn: rounding error > tolerance
+    29.103830 rounded to 29
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:32] into equal-sized buckets. Rounding up.
+src/base/stats/storage.hh:278: warn: Bucket size (4) does not divide range [1:8] into equal-sized buckets. Rounding up.
+board.remote_gdb: Listening for connections on port 7000
+src/sim/syscall_emul.cc:86: warn: ignoring syscall set_robust_list(...)
+src/sim/syscall_emul.cc:97: warn: ignoring syscall rseq(...)
+      (further warnings will be suppressed)
+src/sim/mem_state.cc:443: info: Increasing stack size by one page.
+src/sim/syscall_emul.hh:1127: warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/shafin/repos/parsec-gem5/ext/splash2x/kernels/fft/inst/aarch64-linux.gcc-hooks/bin/fft'
+src/arch/arm/insts/pseudo.cc:174: warn:         instruction 'bti' unimplemented
+src/sim/syscall_emul.cc:86: warn: ignoring syscall mprotect(...)
+[HOOKS] PARSEC Hooks Version 1.2
+
+FFT with Blocking Transpose
+   1024 Complex Doubles
+   1 Processors
+   65536 Cache lines
+   16 Byte line size
+   4096 Bytes per page
+
+[HOOKS] Entering ROI
+iter_num = 32
+Transpose: iter_num = 0
+Step 1:       38
+FFt1DOnce: iter_num = 80
+Step 2:      134
+Transpose: iter_num = 0
+Step 3:       40
+Step 4:      102
+Transpose: iter_num = 0
+Step 5:       39
+[HOOKS] Leaving ROI
+
+                 PROCESS STATISTICS
+            Computation      Transpose     Transpose
+ Proc          Time            Time        Fraction
+    0               373            117       0.31367
+
+                 TIMING INFORMATION
+Start time                        : 1000000000000093
+Initialization finish time        : 1000000000000282
+Overall finish time               : 1000000000000655
+Total time with initialization    :              562
+Total time without initialization :              373
+Overall transpose time            :              117
+Overall transpose fraction        :          0.31367
+
+[HOOKS] Total time spent in ROI: 0.000413s
+[HOOKS] Terminating
+All simulation events were successful.
+Done with the simulation after 6.68 seconds of wall clock time!
